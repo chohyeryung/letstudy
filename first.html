@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>Let' Study</title>
+    <style>
+        body {
+            background: #000;
+        }
+        a{
+            color:white;
+        }
+        h2 {
+            font-family: 'Arial';
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 3rem;
+            line-height: 0.75;
+            position:absolute;
+            top:50%; left:50%;
+            transform: translate(-50%, -50%);
+        }
+        span {
+            display: block;
+        }
+        span:not(.light) {
+            opacity: 0;
+            animation: flashText .5s ease-out alternate infinite;
+        }
+        span.light {
+            position: relative;
+            display: inline-block;
+            animation: flash .5s ease-out alternate infinite;
+            /* &:before {
+                position: absolute;
+                left: 0;
+                top: -10%;
+                width: 100%;
+                height: 120%;
+                background: #fff;
+                filter: blur(10px);
+                content: "";
+                opacity: 0;
+                
+            } */
+        }
+        @keyframes flash{
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes flashText {
+            to {
+                opacity: 0.15;
+            }
+        }
+    </style>
+</head>
+<body>
+     <h2>
+        <span>Let'</span> 
+        <a href="index.php"><span class="light">Study</span></a>
+        <span>R you</span>  
+        <span>Ready?</span>
+    </h2>
+</body>
+</html>

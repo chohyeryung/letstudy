@@ -1,0 +1,13 @@
+.input_title{
+    width:250px;
+    height:30px;
+}
+.input_des{
+    width:500px;
+    height:600px;
+}
+.upload-form{
+    position:absolute;
+    top:55%; left:52%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,81 @@
+@font-face { 
+    font-family: 'MapoDPPA'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoDPPA.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+.signUp_form{
+    position:absolute;
+    top:53%; left:50%;
+    transform: translate(-50%, -50%);
+}
+table{
+    /* padding-top:10px; */
+}
+td{
+    padding:10px;
+}
+input{
+    width:480px;
+    height:40px;
+    font-size:15px;
+    display:inline-block;
+    border:0;
+    border-bottom: 1px solid lightgray;
+}
+.tele{
+    width:150px;
+}
+select{
+    width: 100px; /* 원하는 너비설정 */
+    padding: .8em .5em; /*여백으로 높이 설정 */
+    background: url('img/arrow.png') no-repeat 95% 50%; /* 네이티브 화살표를 커스텀 화살표로 대체 */
+    border: 1px solid #999;
+    border-radius: 0px; /* iOS 둥근모서리 제거 */
+    -webkit-appearance: none; /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+}
+img{
+    width:20px;
+    height:20px;
+}
+.title_sign{
+    font-family: 'MapoDPPA'; 
+    font-weight: lighter;
+}
+fieldset{
+    padding:20px;
+    width:800px;
+    height:600px;
+    border: 1px solid burlywood;
+}
+::placeholder{
+    color:black;
+    padding-left:10px;
+}
+.button_submit{
+    margin-top:40px;
+    width:100px;
+    border:1px solid rgb(93, 56, 8);
+    background-color:white;
+    color:black;
+    margin-left:0;
+}
+.button_submit:hover{
+    cursor: pointer;
+    margin-top:40px;
+    width:100px;
+    background-color:rgb(93, 56, 8);
+    color:white;
+}
+.check_id{
+    position: absolute;
+    left:72%;
+    top:16.2%;
+    width:80px;
+    height:40px;
+    cursor: pointer;
+    border:1px solid rgb(93, 56, 8);
+    background-color:white;
+}
