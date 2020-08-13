@@ -34,7 +34,8 @@
     }else{
         echo("
             <script>
-                alert('비밀번호가 틀립니다')
+                alert('비밀번호가 틀립니다');
+                location.href='login.php';
             </script>
         ");
         exit;
