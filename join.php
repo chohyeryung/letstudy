@@ -1,6 +1,6 @@
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <?php
-	$conn = mysqli_connect('localhost', 'root', '111111', 'study');
+	$conn = mysqli_connect("localhost", "root", "111111", "study");
 
     $userid=$_POST['id'];
     $userpw=password_hash($_POST['pw'], PASSWORD_DEFAULT);

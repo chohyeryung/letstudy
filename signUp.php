@@ -11,33 +11,6 @@
     <?php
         include_once('header.php');
     ?>
-    <script>
-        function check_id(){
-            <?php
-            $id=$_GET["id"];
-            ?>
-                $('html').click(function(e) { 
-                    <?php
-                        $conn=mysqli_connect('localhost', 'root', '111111', 'study');
-                        $sql="SELECT * FROM `member` WHERE id='$id'";
-                        $result=mysqli_query($conn, $sql);
-                        $num_record=mysqli_num_rows($result);
-                        
-                        if($num_record){
-                    ?>
-                            document.getElementById("idcheck").value="<?=$id?>는 중복된 아이디입니다."
-                            <?php
-                        }else{
-                            ?>
-                            document.getElementById("idcheck").value="사용 가능한 아이디입니다."
-                            <?php
-                        }
-                        mysqli_close($conn);
-                            ?>
-                } 
-            });
-        }
-    </script>
     <center>
         <form name="join" class="signUp_form" method="post" action="join.php">
         <fieldset>
