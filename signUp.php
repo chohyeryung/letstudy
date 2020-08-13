@@ -47,9 +47,6 @@
                     <td>
                         <input type="text" name="id" id="uid" size="30" placeholder="아이디" required autocomplete="off">
                     </td>
-                    <td>
-                        <span id="idcheck">
-                    </td>
                 </tr>
                 <tr>
                     <td>
