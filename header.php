@@ -24,23 +24,35 @@
             <div class="container">
                 <div class="title"><a href="index.php"><img src="img/logo.png"></a></div>
                 <div class="nav">
-                    <a href="login.php">
-                        <h4 class="todo">할일</h4>
+                    <a href="todo.php">
+                        <h4 class="todo n">할일</h4>
                     </a>
-                    <a href="login.php">
-                        <h4 class="board">게시판</h4>
+                    <a href="board.php">
+                        <h4 class="board n">게시판</h4>
                     </a>
-                    <a href="login.php">
-                        <h4 class="question">Q & A</h4>
+                    <a href="question.php">
+                        <h4 class="question n">Q & A</h4>
                     </a>
-                    <a href="login.php">
-                        <h4 class="map">공부 지도</h4>
+                    <a href="map.html">
+                        <h4 class="map n">공부 지도</h4>
                     </a>
                 </div>
                 <div class="member">
+                <?php
+                    $uri= $_SERVER['REQUEST_URI']; //uri를 구합니다.
+                    $url=basename($uri);
+                    if($url=='login.php' || $url=='agree.php' || $url=='signUp.php'){
+                        ?>
+                    
+                    <?php
+                        }else{
+                    ?>
                     <a href="login.php"><h4 class="m_text">로그인</h4></a>
                     <h4 class="m_text">|</h4>
                     <a href="agree.php"><h4 class="m_text">회원가입</h4></a>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
         <?php
@@ -50,20 +62,20 @@
                 <div class="title"><a href="index.php"><img src="img/logo.png"></a></div>
                 <div class="nav">
                     <a href="todo.php">
-                        <h4 class="todo">할일</h4>
+                        <h4 class="todo n">할일</h4>
                     </a>
                     <a href="board.php">
-                        <h4 class="board">게시판</h4>
+                        <h4 class="board n">게시판</h4>
                     </a>
                     <a href="question.php">
-                        <h4 class="question">Q & A</h4>
+                        <h4 class="question n">Q & A</h4>
                     </a>
                     <a href="map.html">
-                        <h4 class="map">공부 지도</h4>
+                        <h4 class="map n">공부 지도</h4>
                     </a>
                 </div>
                 <div class="member">
-                    <a href="modify.php"><h4 class="m_text">마이페이지</h4></a>
+                    <a href="mypage.php"><h4 class="m_text">마이페이지</h4></a>
                     <a href="#"><h4 class="m_text">|</h4></a>
                     <a href="logout.php"><h4 class="m_text">로그아웃</h4></a>
                 </div>

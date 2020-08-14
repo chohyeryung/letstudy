@@ -4,55 +4,79 @@
     font-weight: normal; 
     font-style: normal; 
 }
+html,body{
+    width:100%;
+    height:100%;
+    margin:0;
+}
+.log_container{
+    /* box-shadow: 0px 1px 10px 0px lightgray inset; */
+    box-shadow: 0 8px 6px -6px lightgray;
+    height:85%;
+}
 .form{
     position:absolute;
     top:50%; left:50%;
     transform: translate(-50%, -50%);
 }
-table{
-    /* padding-top:10px; */
-}
-td{
-    padding:18px;
+.title_sign{
+    font-weight: bold;
+    border-bottom:1px solid black;
+    padding-bottom:23px;
+    width:182px;
+    margin-bottom:80px;
+    font-size:30px;
 }
 input{
-    width:480px;
-    height:40px;
-    font-size:15px;
+    width:580px;
+    height:100px;
+    font-size:22px;
     display:inline-block;
     border:0;
-    border-bottom: 1px solid lightgray;
+    background-color:rgb(245, 245, 245);
+    border-radius: 50px;
 }
-.title_sign{
-    font-family: 'MapoDPPA'; 
-    font-weight: lighter;
+::placeholder{
+    opacity: 0.7;
+    padding-left:50px;
+}
+.input_id{
+    padding-bottom:21px;
 }
 fieldset{
     padding:20px;
     width:600px;
     height:300px;
-    border: 1px solid burlywood;
-}
-::placeholder{
-    color:black;
-    padding-left:10px;
+    border: none;
 }
 .button_submit{
-    font-family: 'MapoDPPA'; 
+    width:580px;
+    height:100px;
+    font-size:24px;
     display:inline-block;
-    margin-top:40px;
-    width:130px;
-    height:60px;
-    border: 1px solid burlywood;
-    background-color:white;
-    color:black;
-    margin-left:0;
+    border:0;
+    background-color:#b4d2dd;
+    border-radius: 50px;
+    line-height: 100px;
+    margin-top:61px;
+    font-weight: bold;
 }
 .button_submit:hover{
-    display:inline-block;
     cursor: pointer;
-    margin-top:40px;
-    width:130px;
-    background-color: darkolivegreen;
-    color:white;
+}
+.log_nav{
+    display:flex;
+    width:331px;
+    padding-top:42px;
+    height:18px;
+    color:black;
+    justify-content: space-around;
+}
+.log{
+    margin-right:10px;
+    margin-top:0;
+    margin-bottom:0;
+    font-size:12px;
+    color:black;
+    font-weight: lighter;
 }

@@ -32,7 +32,7 @@
     ?>
     <center>
         
-        <form name="join" class="signUp_form" method="post" action="modify_process.php?id=<?=$userid1?>">
+        <form name="join" class="signUp_form" method="post" action="mypage_process.php?id=<?=$userid1?>">
         <fieldset>
         <legend><h1 class="title_sign">정보수정</h1></legend>
             <table>

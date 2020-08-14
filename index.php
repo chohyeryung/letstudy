@@ -18,6 +18,7 @@
         else $userlevel="";
         if(isset($_SESSION["userpoint"]))  $userpoint=$_SESSION["userpoint"];
         else $userpoint="";
+        include_once('footer.html');
     ?>
 </body>
 </html>
