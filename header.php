@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,40 +18,58 @@
         else $userpoint="";
     ?>
     <header>
-        <h1 class="title"><a href="index.php">Let' study</a></h1>
-        <div align="right" class="member">
-            <?php
-            if(!$userid1){
+        <?php
+        if(!$userid1){
             ?>
-                <li><button onclick="location.href='agree.php'">회원가입</button></li>
-                <li>||</li>
-                <li><button onclick="location.href='login.php'">로그인</button></li>
-                
-            <?php
-            }else{
-                // $logged=$userid1."님[Level : ".$userlevel.", Point : ".$userpoint."]";
-                $uri= $_SERVER['REQUEST_URI']; //uri를 구합니다.
-                $url=basename($uri);
-                if($url=='upload.php'){
-                    ?>
-                    <li><button onclick="location.href='create.php'">글 작성</button></li>
-                    <li><button onclick="location.href='logout.php'">로그아웃</button></li>
-                    <li><button onclick="location.href='modify.php'">정보수정</button></li>
-                <?php
-                    }else{
-                ?>
-                    <!-- <li><?=$logged?></li>
-                    <li>||</li> -->
-                    <li><button onclick="location.href='logout.php'">로그아웃</button></li>
-                    <!-- <li>||</li> -->
-                    <li><button onclick="location.href='modify.php'">정보수정</button></li>
-                <?php
-                    }
-                }
-                ?>
-           
-        </div>
+            <div class="container">
+                <h1 class="title"><a href="index.php">Let' study</a></h1>
+                <div class="nav">
+                    <a href="login.php">
+                        <h4 class="todo">할일</h3>
+                    </a>
+                    <a href="login.php">
+                        <h4 class="board">게시판</h3>
+                    </a>
+                    <a href="login.php">
+                        <h4 class="question">Q & A</h3>
+                    </a>
+                    <a href="login.php">
+                        <h4 class="map">공부 지도</h3>
+                    </a>
+                </div>
+                <div class="member">
+                    <li><button onclick="location.href='login.php'">로그인</button></li>
+                    <li>||</li>
+                    <li><button onclick="location.href='agree.php'">회원가입</button></li>
+                </div>
+            </div>
+        <?php
+        }else{
+        ?>
+            <div class="container">
+                <h1 class="title"><a href="index.php">Let' study</a></h1>
+                <div class="nav">
+                    <a href="todo.php">
+                        <h4 class="todo">할일</h3>
+                    </a>
+                    <a href="board.php">
+                        <h4 class="board">게시판</h3>
+                    </a>
+                    <a href="question.php">
+                        <h4 class="question">Q & A</h3>
+                    </a>
+                    <a href="map.html">
+                        <h4 class="map">공부 지도</h3>
+                    </a>
+                </div>
+                <div class="member">
+                    <li><a href="modify.php"><h4>마이페이지</h4></a></li>
+                    <li><a href="logout.php"><h4>로그아웃</h4></a></li>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
     </header>
-    
 </body>
 </html>
