@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="header.css" />
 </head>
 <body>
     <?php
@@ -24,16 +24,16 @@
             <div class="container">
                 <div class="title"><a href="index.php"><img src="img/logo.png"></a></div>
                 <div class="nav">
-                    <a href="todo.php">
+                    <a href="login.php">
                         <h4 class="todo n">할일</h4>
                     </a>
-                    <a href="board.php">
+                    <a href="login.php">
                         <h4 class="board n">게시판</h4>
                     </a>
-                    <a href="question.php">
+                    <a href="login.php">
                         <h4 class="question n">Q & A</h4>
                     </a>
-                    <a href="map.html">
+                    <a href="login.html">
                         <h4 class="map n">공부 지도</h4>
                     </a>
                 </div>

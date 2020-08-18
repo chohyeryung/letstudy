@@ -21,7 +21,7 @@
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <title>Let' Study</title>
         <style>
-            .board{
+            /* .board{
                 border: 1px solid gray;
                 margin-top:100px;
                 height:55%;
@@ -36,18 +36,6 @@
                 margin:0;
                 margin-top:10px;
             }
-            h3{
-                position:absolute;
-                top:40%; left:50%;
-                transform: translate(-50%, -50%);
-            }
-            h4{
-                color:lightgray;
-                font-weight:lighter;
-                padding-left:12%;
-                margin:0;
-                margin-bottom:10px;
-            }
             hr{
                 width:80%;
                 margin: auto;
@@ -56,7 +44,7 @@
                 position:absolute;
                 bottom:10%; left:50%;
                 transform: translate(-50%, -50%);
-            }
+            } */
         </style>
     </head>
     <body>
@@ -65,6 +53,7 @@
             <h4><?=$board['time']?></h4>
             <hr>
             <h3><?=$board['description']?></h3>
+            <a href="upload.php">글목록</a>
         </div>
         <?php
         
@@ -73,7 +62,6 @@
         <form action="process_delete.php" method="POST">
             <input type="hidden" name="id" value="<?=$_GET['id']?>">
             <input type="submit" value="삭제">
-            <a href="upload.php">글목록
         </form>
         <?php
             }

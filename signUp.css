@@ -1,75 +1,78 @@
-@font-face { 
-    font-family: 'MapoDPPA'; 
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoDPPA.woff') format('woff'); 
-    font-weight: normal; 
-    font-style: normal; 
-}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 .signUp_form{
-    position:absolute;
-    top:53%; left:50%;
-    transform: translate(-50%, -50%);
+    margin:auto;
+    margin-top:140px;
+    font-family: "Noto Sans KR", sans-serif !important;
+    margin-bottom:160px;
 }
 table{
-    /* padding-top:10px; */
+   width:580px;
 }
-td{
-    padding:10px;
+.text{
+    font-size: 24px;
+    font-weight: normal;
 }
 input{
-    width:480px;
-    height:40px;
-    font-size:15px;
+    width:580px;
+    height:100px;
+    font-size:18px;
+    font-weight: lighter;
     display:inline-block;
     border:0;
-    border-bottom: 1px solid lightgray;
+    background-color:rgb(245, 245, 245);
+    border-radius: 50px;
 }
-.tele{
-    width:150px;
+.yymmdd{
+    font-size:18px;
+    width:180px;
+    height:100px;
+}
+.mar{
+    margin-left:10px;
+    margin-right:10px;
+}
+.mar2{
+    margin-right:10px;
+}
+.email{
+    width:280px;
 }
 select{
-    width: 100px; /* 원하는 너비설정 */
-    padding: .8em .5em; /*여백으로 높이 설정 */
+    font-size:18px;
+    font-weight: lighter;
     background: url('img/arrow.png') no-repeat 95% 50%; /* 네이티브 화살표를 커스텀 화살표로 대체 */
-    border: 1px solid #999;
-    border-radius: 0px; /* iOS 둥근모서리 제거 */
-    -webkit-appearance: none; /* 네이티브 외형 감추기 */
+    -webkit-appearance: none; 
     -moz-appearance: none;
-    appearance: none;
+    height:100px;
+    display:inline-block;
+    border:0;
+    border-radius: 50px;
+    background-color:rgb(245, 245, 245);
+}
+select, ::placeholder{
+    padding-left:40px;
+    color:#bbbbbb;
 }
 img{
     width:20px;
     height:20px;
 }
-.title_sign{
-    font-family: 'MapoDPPA'; 
-    font-weight: lighter;
-}
-fieldset{
-    padding:20px;
-    width:800px;
-    height:600px;
-    border: 1px solid burlywood;
-}
-::placeholder{
-    color:black;
-    padding-left:10px;
-}
 .button_submit{
-    margin-top:40px;
-    width:100px;
-    border:1px solid rgb(93, 56, 8);
-    background-color:white;
-    color:black;
-    margin-left:0;
+    width:580px;
+    height:100px;
+    font-size:24px;
+    display:inline-block;
+    border:0;
+    background-color:#b4d2dd;
+    border-radius: 50px;
+    line-height: 100px;
+    margin-top:61px;
+    font-weight: bold;
 }
 .button_submit:hover{
     cursor: pointer;
-    margin-top:40px;
-    width:100px;
-    background-color:rgb(93, 56, 8);
-    color:white;
 }
-.check_id{
+/* .check_id{
     position: absolute;
     left:72%;
     top:16.2%;
@@ -78,4 +81,4 @@ fieldset{
     cursor: pointer;
     border:1px solid rgb(93, 56, 8);
     background-color:white;
-}
+} */

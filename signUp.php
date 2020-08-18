@@ -13,45 +13,66 @@
     ?>
     <center>
         <form name="join" class="signUp_form" method="post" action="join.php">
-        <fieldset>
-        <legend><h1 class="title_sign">회원가입</h1></legend>
             <table>
                 <tr>
                     <td>
-                        <input type="text" name="id" id="uid" size="30" placeholder="아이디" required autocomplete="off">
+                        <h4 class="text">아이디</h4>
+                        <input type="text" name="id" id="uid" size="30" required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="password" size="30" name="pw" placeholder="비밀번호" required autocomplete="off">
+                        <h4 class="text">비밀번호</h4>
+                        <input type="password" size="30" name="pw" required autocomplete="off">
                     </td>
                 </tr>
                     <td>
-                        <input type="text" maxlength="10" name="name" size="12" placeholder="이름" required autocomplete="off">
+                        <h4 class="text">이름</h4>
+                        <input type="text" maxlength="10" name="name" size="12" required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="age" size="5" placeholder="나이" required autocomplete="off">
+                        <h4 class="text">생년월일</h4>
+                        <input type="text" class="yymmdd" placeholder="년 (4자)" name="birth1">
+                        <select name="birth2" class="yymmdd mar">
+                                <option value="월" selected>월</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+							    <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+							    <option value="10">10</option>
+                                <option value="11">11</option>
+							    <option value="12">12</option>
+                            </select>
+                        <input type="text" class="yymmdd" placeholder="일" name="birth3" size="10"required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="organization" size="30" placeholder="소속" required autocomplete="off">
+                        <h4 class="text">소속</h4>
+                        <input type="text" name="organization" size="30" required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-left:15px">
-                        <input type="text" class="tele" value="010" name="tele1">-
-                        <input type="text" class="tele" name="tele2" size="10" placeholder="휴대전화" required autocomplete="off">-
-                        <input type="text" class="tele" name="tele3" size="10" placeholder="휴대전화" required autocomplete="off">
+                   
+                    <td> 
+                        <h4 class="text">전화번호</h4>
+                        <input type="text" placeholder="휴대전화 ('-'없이 11자 입력)" name="tele">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="email" placeholder="이메일" required autocomplete="off">@
-                            <select name="emadress">
-                                <option value="naver.com" selected>naver.com</option>
+                        <h4 class="text">이메일</h4>
+                        <input type="text" name="email" class="email mar2" required autocomplete="off">
+                            <select name="emadress" class="email">
+                                <option value="직접입력" class="placeholder" selected>직접 입력</option>
+                                <option value="naver.com">naver.com</option>
                                 <option value="gmail.com">gmail.com</option>
                                 <option value="daum.net">daum.net</option>
                                 <option value="nate.com">nate.com</option>
@@ -60,7 +81,6 @@
                     </td>
                 </tr>
             </table>
-            </fieldset>
             <input class="button_submit" type="submit" onclick="check_id()" value="회원가입">
         </form>
     </center>

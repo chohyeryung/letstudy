@@ -5,9 +5,9 @@
     $userid=$_POST['id'];
     $userpw=password_hash($_POST['pw'], PASSWORD_DEFAULT);
 	$name=$_POST['name'];
-    $age=$_POST['age'];
+    $age=$_POST['birth1'].$_POST['birth2'].$_POST['birth3'];
     $organization=$_POST['organization'];
-    $tele=$_POST['tele1'].'-'.$_POST['tele2'].'-'.$_POST['tele3'];
+    $tele=$_POST['tele'];
 	$email= $_POST['email'].'@'.$_POST['emadress'];
  
     $query = "INSERT INTO `member` (`id`, `pw`, `name`, `age`, `organization`, `email`, `tele`, `level`, `point`) VALUES ('$userid', '$userpw', '$name', '$age', '$organization', '$email', '$tele', 9, 0)";

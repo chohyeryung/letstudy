@@ -1,29 +1,44 @@
-body {
-    background-color:whitesmoke;
-    font-family: Consolas, monospace;
-    font-family: 12px;
+.board_container{
+    width:980px;
+    margin:auto;
+    margin-top:145px;
+    position: relative;
 }
-@font-face { 
-    font-family: 'Eoe_Zno_B'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_B.woff') format('woff'); 
-    font-weight: normal; 
-    font-style: normal; 
+.title_board{
+    font-weight: bold;
+    border-bottom:1px solid black;
+    padding-bottom:20px;
+    margin-bottom:160px;
+    font-size:30px;
 }
-.table_list{
-    width:1500px;
-    position:absolute;
-    top:20%; left:50%;
-    transform: translate(-50%, -50%);
+.button{
+    position: absolute;
+    right:0;
+    top:72px;
 }
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid gray;
+input{
+    height:80px;
+    display:inline-block;
+    border:0;
+    background-color:rgb(245, 245, 245);
+    border-radius: 50px;
+    font-size:18px;
+}
+::placeholder{
+    padding-left:40px;
+}
+.cate{
+    width:180px;
+}
+.search{
+    width: 380px;
+}
+td, th{
+    padding: 20px;
+    border-bottom: 1px solid black;
     text-align:center;
-    width:200px;
+    width:300px;
 }
-.table_list{
-    margin-top:30px;
-}
-a{
-    text-decoration: none;
-    color:black;
+hr{
+    border: 1px solid black;
 }
