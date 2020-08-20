@@ -31,7 +31,6 @@ img{
 .nav{
     display:flex;
     margin-right:300px;
-    width:380px;
     padding-top:42px;
     height:18px;
 }
@@ -40,6 +39,7 @@ img{
     margin-top:0;
     margin-bottom:0;
     color:gray;
+    font-weight:bolder;
 }
 .map{
     margin-right:0;
@@ -53,5 +53,4 @@ img{
 }
 a{
     text-decoration: none;
-    color:black;
 }

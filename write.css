@@ -1,0 +1,21 @@
+.written_board{
+    width:950px;
+    margin:auto;
+    margin-top:145px;
+    position: relative;
+}
+.board_title, .time{
+    display:inline-block;
+    margin:0;
+    margin-bottom:20px;
+}
+.time{
+    position: absolute;
+    right:0;
+    top:20px;
+}
+hr{
+    margin:0;
+    border-color:#000000;
+    margin-bottom:60px;
+}

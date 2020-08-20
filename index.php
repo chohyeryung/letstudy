@@ -22,7 +22,7 @@
     <div class="index_container">
         <div class="fir_con">
             <h3>혼자 공부하는 당신을 위한 선택,</h3>
-            <div class="index_title"><a href="index.php"><img src="img/logo.png"></a></div>
+            <div class="index_title"><a href="index.php"><img src="img/main_logo.png"></a></div>
             <table>
                 <tr>
                     <!-- <div class="circle"></div> -->

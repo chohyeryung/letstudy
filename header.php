@@ -33,7 +33,7 @@
                     <a href="login.php">
                         <h4 class="question n">Q & A</h4>
                     </a>
-                    <a href="login.html">
+                    <a href="login.php">
                         <h4 class="map n">공부 지도</h4>
                     </a>
                 </div>
@@ -70,7 +70,7 @@
                     <a href="question.php">
                         <h4 class="question n">Q & A</h4>
                     </a>
-                    <a href="map.html">
+                    <a href="map.php">
                         <h4 class="map n">공부 지도</h4>
                     </a>
                 </div>

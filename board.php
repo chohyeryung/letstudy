@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="upload.css" />
+        <link rel="stylesheet" type="text/css" href="board.css" />
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <title>Let' Study</title>
     </head>
@@ -15,11 +15,13 @@
             $result=mysqli_query($conn, $sql);
             $list='';
             while($row=mysqli_fetch_array($result)){
+                $escaped_num=htmlspecialchars($row['id']);
                 $escaped_title=htmlspecialchars($row['title']);
                 $escaped_time=htmlspecialchars($row['created']);
+                $escaped_time=substr($escaped_time, 0 , 11);
                 $escaped_name=htmlspecialchars($row['name']);
-                $list_title="<a href=\"upload_list.php?id={$row['id']}\">{$escaped_title}</a>";
-                $list=$list.'<tr><td>'.$list_title.'</td><td>'.$escaped_time.'</td><td>'.$escaped_name.'</td></tr>';
+                $list_title="<a href=\"write.php?id={$row['id']}\">{$escaped_title}</a>";
+                $list=$list.'<tr><td>'.$escaped_num.'</td><td>'.$list_title.'</td><td>'.$escaped_time.'</td><td>'.$escaped_name.'</td></tr>';
             }
         ?>
         <div class="board_container">
@@ -31,16 +33,18 @@
             <table class="table_list">
                 <thead>
                     <tr>
-                        <hr>
+                        <th>번호</th>
                         <th>제목</th>
                         <th>작성일</th>
                         <th>작성자</th>
+                        <th>조회수</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?=$list?>
                 </tbody>
             </table>
+            <a href="create.php"><button class="create">글쓰기</button></a>
         </div>
     </body>
     </head>

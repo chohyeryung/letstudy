@@ -11,6 +11,11 @@
     margin-bottom:160px;
     font-size:30px;
 }
+.table_list{
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+    margin-bottom:70px;
+}
 .button{
     position: absolute;
     right:0;
@@ -34,11 +39,29 @@ input{
     width: 380px;
 }
 td, th{
-    padding: 20px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #444444;
+    padding: 32px;
     text-align:center;
     width:300px;
 }
 hr{
     border: 1px solid black;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+.create{
+    position: absolute;
+    right:0;
+    width:180px;
+    height:80px;
+    font-size:18px;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color:#b4d2dd;
+    border:none;
+}
+.create:hover{
+    cursor: pointer;
 }

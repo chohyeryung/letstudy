@@ -6,6 +6,9 @@
     <title>지도</title>
 </head>
 <body>
+    <?php
+        include_once('header.php');
+    ?>
 <div id="map" style="width:100%;height:80%;"></div>
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=62f395b0e08fed1f0241c9d88f73d999"></script>
 <script>
@@ -77,11 +80,10 @@ function displayMarker(locPosition, message){
         $.getJSON('경기도공공도서관현황.json', function(data){
             $.each(data, function(i, item){ //i는 위치값, item은 객체 
                 var json=new Object();
-                json.name='<div class="lname">'+item.LIBRRY_NM+'</div>';
-                json.time='<div>'+item.RECSROOM_OPEN_TM_INFO+'</div>';
+                json.name=item.LIBRRY_NM;
+                json.time=item.RECSROOM_OPEN_TM_INFO;
                 json.latlng=new kakao.maps.LatLng(item.REFINE_WGS84_LAT, item.REFINE_WGS84_LOGT);
                 html.push(json);
-                
             });
             for (var i = 0; i < html.length; i ++) {
                 displayCustom(i);
@@ -113,7 +115,7 @@ function displayMarker(locPosition, message){
                 var title=document.createElement('div');
                 title.className="title";
                 title.innerHTML=html[i].name;
-                
+
                 var closeBtn = document.createElement('button');
                 closeBtn.className="close";
                 closeBtn.innerHTML = '닫기';
