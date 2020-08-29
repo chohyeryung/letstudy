@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="create.css" />
     <title>Let' Study</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        $(document).ready(function(){ 
+            var fileTarget = $('.filebox .upload-hidden'); 
+            fileTarget.on('change', function(){ // 값이 변경되면 
+                if(window.FileReader){ // modern browser 
+                    var filename = $(this)[0].files[0].name; 
+                } else { // old IE 
+                    var filename = $(this).val().split('/').pop().split('\\').pop(); // 파일명만 추출 
+                } 
+                // 추출한 파일명 삽입 
+                $(this).siblings('.file_name').val(filename); 
+            }); 
+        });
+    </script>
 </head>
 <body>
     <?php
@@ -30,8 +45,11 @@
                     <h4 class="text f">파일 첨부</h4> 
                 </td>
                 <td>
-                    <button class="file">파일 첨부</button>
-                    <input type="text" size="30" class="file_name" name="file_name" required autocomplete="off" placeholder="선택된 파일 없음">
+                    <div class="filebox"> 
+                        <label for="ex_filename">파일 선택</label> 
+                        <input class="file_name" value="선택된 파일 없음" disabled="disabled"> 
+                        <input type="file" id="ex_filename" class="upload-hidden"> 
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -43,7 +61,7 @@
                 </td>
             </tr>
         </table>
-        <input type="submit" value="확인">
+        <input type="submit" class="create_ok" value="등록">
     </form>
 </body>
 </html>

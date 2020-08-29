@@ -9,7 +9,7 @@
     <?php
         include_once('header.php');
     ?>
-<div id="map" style="width:100%;height:80%;"></div>
+<div id="map" style="width:100%;height:89%;"></div>
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=62f395b0e08fed1f0241c9d88f73d999"></script>
 <script>
 // 마커를 담을 배열입니다
@@ -111,10 +111,12 @@ function displayMarker(locPosition, message){
                 
                 var info=document.createElement('div');
                 info.className="info";
+                content.appendChild(info);
 
                 var title=document.createElement('div');
-                title.className="title";
+                title.className="titlename";
                 title.innerHTML=html[i].name;
+                info.appendChild(title);
 
                 var closeBtn = document.createElement('button');
                 closeBtn.className="close";
@@ -122,22 +124,20 @@ function displayMarker(locPosition, message){
                 closeBtn.onclick = function () {
                     overlay.setMap(null);
                 };
+                title.appendChild(closeBtn);
 
                 var body=document.createElement('div');
                 body.className="body";
+                info.appendChild(body);
 
                 var desc=document.createElement('div');
                 desc.className="desc";
+                body.appendChild(desc);
 
                 var time=document.createElement('div');
                 time.className="time";
                 time.innerHTML=html[i].time;
 
-                content.appendChild(info);
-                info.appendChild(title);
-                info.appendChild(body);
-                title.appendChild(closeBtn);
-                body.appendChild(desc);
                 desc.appendChild(time);
                 
                 overlay.setContent(content);

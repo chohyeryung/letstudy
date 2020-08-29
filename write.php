@@ -26,7 +26,7 @@
             <h1 class="board_title"><?=$board['title']?><h4 class="time"><?=$board['time']?></h4></h1>
             <hr>
             <h3 class="des"><?=$board['description']?></h3>
-            <a href="board.php">글목록</a>
+            <a href="board.php"><button class="go_board">목록</button></a>
         <?php
             if($userid1==$row['name']){
         ?>

@@ -3,8 +3,8 @@
     background-color: #f5f5f5;
     display:table;
     width:100%;
-    position: relative;
-    bottom:0;
+    bottom:0px;
+    position: fixed;
     font-size:15px;
 }
 .copy{
