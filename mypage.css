@@ -1,0 +1,62 @@
+.title_sign{
+    font-weight: bold;
+    border-bottom:1px solid black;
+    padding-bottom:23px;
+    width:182px;
+    margin-bottom:80px;
+    font-size:30px;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+.signUp_form{
+    margin:auto;
+    margin-top:140px;
+    font-family: "Noto Sans KR", sans-serif !important;
+    margin-bottom:160px;
+}
+table{
+   width:480px;
+}
+.text{
+    font-size: 24px;
+    font-weight: normal;
+}
+input{
+    width:480px;
+    height:80px;
+    padding-left:40px;
+    font-size:18px;
+    font-weight: lighter;
+    display:inline-block;
+    margin-bottom:20px;
+    border:0;
+    background-color:rgb(245, 245, 245);
+    border-radius: 50px;
+}
+select{
+    width:160px;
+    height:80px;
+    padding-left:20px;
+    font-size:18px;
+    font-weight: lighter;
+    display:inline-block;
+    border:0;
+    background-color:rgb(245, 245, 245);
+    border-radius: 50px;
+}
+.button_submit{
+    width:220px;
+    height:80px;
+    font-size:20px;
+    display:inline-block;
+    border:0;
+    padding:0;
+    background-color:#b4d2dd;
+    border-radius: 50px;
+    line-height: 80px;
+    margin-top:61px;
+    font-weight: bold;
+}
+.button_submit:hover{
+    cursor: pointer;
+}

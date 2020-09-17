@@ -3,6 +3,7 @@
 	$conn = mysqli_connect("localhost", "root", "111111", "study");
 
     $userid=$_POST['id'];
+    // $userpw=hex(aes_encrypt($_POST['pw'],'userpw'));
     $userpw=password_hash($_POST['pw'], PASSWORD_DEFAULT);
 	$name=$_POST['name'];
     $age=$_POST['birth1'].$_POST['birth2'].$_POST['birth3'];

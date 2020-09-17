@@ -1,6 +1,7 @@
 <?php
     $id=$_GET["id"];
 
+    // $pw=hex(aes_encrypt($_POST['pw'],'userpw'));
     $pw=password_hash($_POST['pw'], PASSWORD_DEFAULT);
 	$name=$_POST['name'];
     $age=$_POST['age'];
