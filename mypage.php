@@ -19,13 +19,20 @@
         $name=$row["name"];
         $age=$row["age"];
         $oz=$row["organization"];
-        $tele=explode("-", $row["tele"]);
-        $tele1=$tele[0];
-        $tele2=$tele[1];
-        $tele3=$tele[2];
+        $tele=explode("-", $row["tele"])[0];
+        $tele1=substr($tele, 0, 3); ;
+        $tele2=substr($tele, 3, 4); ;
+        $tele3=substr($tele, 7, 9); ;
         $email=explode("@", $row["email"]);
         $email1=$email[0];
         $email2=$email[1];
+
+        function Console_log($tele){
+            echo "<script>console.log( 'PHP_Console: " . $tele . "' );</script>";
+        }
+        
+        Console_log($tele1);
+        Console_log($tele);
 
         mysqli_close($conn);
     ?>
