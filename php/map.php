@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="map.css" />
+    <link rel="stylesheet" type="text/css" href="../css/map.css" />
     <title>지도</title>
 </head>
 <body>
@@ -45,7 +45,7 @@ if (navigator.geolocation) {
 }
 function displayMarker(locPosition, message){
     console.log(locPosition, message);
-    var imageSrc = 'img/blue_marker.png', // 마커이미지의 주소입니다    
+    var imageSrc = '../img/blue_marker.png', // 마커이미지의 주소입니다    
     imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기입니다
     imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
@@ -73,7 +73,7 @@ function displayMarker(locPosition, message){
 //
 
 </script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script>
     var html=new Array();
     $(document).ready(function(){
@@ -89,7 +89,7 @@ function displayMarker(locPosition, message){
                 displayCustom(i);
             }
             function displayCustom(i){
-                var imageSrc = 'img/black_marker.png', // 마커이미지의 주소입니다    
+                var imageSrc = '../img/black_marker.png', // 마커이미지의 주소입니다    
                 imageSize = new kakao.maps.Size(25, 25), // 마커이미지의 크기입니다
                 imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 

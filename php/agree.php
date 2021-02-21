@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="agree.css" />
+    <link rel="stylesheet" type="text/css" href="../css/agree.css" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <title>Document</title>
     <script type="text/javascript">

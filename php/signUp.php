@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-    <link rel="stylesheet" type="text/css" href="signUp.css" />
+    <link rel="stylesheet" type="text/css" href="../css/signUp.css" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>

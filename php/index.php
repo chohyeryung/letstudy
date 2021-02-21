@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <title>Let' Study</title>
 </head>
@@ -25,7 +25,7 @@
     <div class="index_container">
         <div class="fir_con">
             <h3>혼자 공부하는 당신을 위한 선택,</h3>
-            <div class="index_title"><a href="index.php"><img src="img/main_logo.png"></a></div>
+            <div class="index_title"><a href="index.php"><img src="../img/main_logo.png"></a></div>
             <table>
                 <tr>
                     <!-- <div class="circle"></div> -->
@@ -43,17 +43,17 @@
             </table>
         </div>
         <div class="index_img">
-            <img src="img/일러스트.png">
+            <img src="../img/일러스트.png">
         </div>
     </div>
     <?php
-        include_once('footer.html');
+        include_once('../html/footer.html');
         }else{
     ?>
     <div class="index_container">
             <div class="fir_con">
                 <h3>혼자 공부하는 당신을 위한 선택,</h3>
-                <div class="index_title"><a href="index.php"><img src="img/main_logo.png"></a></div>
+                <div class="index_title"><a href="index.php"><img src="../img/main_logo.png"></a></div>
                 <table>
                     <tr>
                         <!-- <div class="circle"></div> -->
@@ -71,7 +71,7 @@
                 </table>
             </div>
             <div class="index_img">
-                <img src="img/일러스트.png">
+                <img src="../img/일러스트.png">
             </div>
     </div>
     <div class="index_s_container">
@@ -80,7 +80,7 @@
         </div>
     <?php
         }
-        include_once('footer.html');
+        include_once('../html/footer.html');
     ?>
 </body>
 </html>

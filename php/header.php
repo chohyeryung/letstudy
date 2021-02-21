@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="header.css" />
+    <link rel="stylesheet" type="text/css" href="../css/header.css" />
 </head>
 <body>
     <?php
@@ -22,7 +22,7 @@
         if(!$userid1){
             ?>
             <div class="container">
-                <div class="title"><a href="index.php"><img src="img/logo.png"></a></div>
+                <div class="title"><a href="index.php"><img src="../img/logo.png"></a></div>
                 <div class="nav">
                     <a href="login.php">
                         <h4 class="todo n">할일</h4>
@@ -59,7 +59,7 @@
         }else{
         ?>
             <div class="container">
-                <div class="title"><a href="index.php"><img src="img/logo.png"></a></div>
+                <div class="title"><a href="index.php"><img src="../img/logo.png"></a></div>
                 <div class="nav">
                     <a href="todo.php">
                         <h4 class="todo n">할일</h4>
