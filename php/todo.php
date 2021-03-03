@@ -5,11 +5,7 @@
     if(isset($_SESSION["userid"]))  $u_name=$_SESSION["userid"];
     else $u_name="";
 
-    $conn=mysqli_connect('localhost', 'root', '111111', 'study');
-
-    $sql="SELECT * FROM `todo` WHERE user_idx = '$u_idx'";
-    $result = mysqli_query($conn, $sql);
-    $num_match = mysqli_num_rows($result);
+    $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
 ?>
 
 <!DOCTYPE html>
@@ -29,22 +25,33 @@
     <form class="js-toDoForm" action="todo_process.php" name="" method="POST">
         <input type="text" name="content" class="input-todo" placeholder="Write to do">
         <input type="submit" name="submit" value="Add">
-        <ul class="toDoList">
-            <?php          
-                if(!$num_match){
-                    echo '<h3>'.$u_name.'</h3> 님';
-                }else{
-                    $i = 1;
-                    while ($row = mysqli_fetch_array($result)) { ?>
-                        <input type="hidden" name="del_idx" value="<?= $row['idx'] ?>">
-                        <div><?php echo $row['content'] ?></div>
-                        <button type="submit" name="delete">X</button>
-                    <?php 
-                        $i++; 
-                    } 
-                }
-            ?>
-        </ul>
+    </form>
+        <?php    
+            $sql=$pdo->prepare("SELECT * FROM `todo` WHERE user_idx = '$u_idx'");
+            $sql->execute();
+
+            foreach($sql as $row) {
+        ?>
+                <table>
+                    <tr>
+                        <td><?= htmlspecialchars($row['content']) ?></td>
+                        <td>
+                        <form method="POST" action="todo_process.php">
+                            <button type="submit" name="delete">X</button>
+                            <input type="hidden" name="id" value="<?= $row['idx'] ?>">
+                            <input type="hidden" name="delete" value="true">
+                        </form>
+                        </td>
+                    </tr>
+                </table>
+        <?php
+            }
+            // $result = mysqli_query($conn, $sql);
+            // $num_match = mysqli_num_rows($result);
+
+
+            
+        ?>
     </form>
 </body>
 </html>
