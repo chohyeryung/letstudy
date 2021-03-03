@@ -26,27 +26,28 @@
                 </tr>
                 <tr>
                     <td>
+                        <h4 class="text">닉네임</h4>
+                        <input type="text" name="memberNickName" class="memberNickName"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <h4 class="text">비밀번호</h4>
-                        <input type="password" size="30" name="memberPw" autocomplete="off">
+                        <input type="password" name="memberPw" class="memberPw" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <h4 class="text">비밀번호 확인</h4>
-                        <input type="password" size="30" name="memberPw2" autocomplete="off">
+                        <i<input type="password" name="memberPw2" class="memberPw2"  />
                         <div class="memberPw2Comment comment"></div>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <h4 class="text">닉네임</h4>
-                        <input type="text" maxlength="10" name="memberNickName" size="12" autocomplete="off">
-                    </td>
-                </tr>
+                
                 <tr>
                     <td>
                         <h4 class="text">생년월일</h4>
-                        <input type="date" class="yymmdd" name="memberBirthDay">
+                        <input type="date" name="memberBirthDay" class="memberBirthDay" />
                         <!-- <select name="birth2" class="yymmdd mar">
                                 <option value="월" selected>월</option>
                                 <option value="1">1</option>
@@ -66,24 +67,16 @@
                     </td>
                 </tr>
                 <tr>
-                   
                     <td> 
                         <h4 class="text">전화번호</h4>
                         <input type="text" placeholder="휴대전화 ('-'없이 11자 입력)" name="memberTele">
+                        <div class="memberTeleComment comment"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <h4 class="text">이메일</h4>
-                        <input type="text" name="memberEmailAddress" class="email mar2" autocomplete="off">
-                            <select name="memberEmailAddress2" class="email">
-                                <option value="직접입력" class="placeholder" selected>직접 입력</option>
-                                <option value="naver.com">naver.com</option>
-                                <option value="gmail.com">gmail.com</option>
-                                <option value="daum.net">daum.net</option>
-                                <option value="nate.com">nate.com</option>
-							    <option value="hanmail.com">hanmail.com</option>
-                            </select>
+                        <input type="text" name="memberEmailAddress" class="memberEmailAddress" />
                         <div class="memberEmailAddressComment comment"></div>
                     </td>
                 </tr>

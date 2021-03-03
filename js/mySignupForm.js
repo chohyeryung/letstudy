@@ -5,37 +5,36 @@ $(function(){
     var memberPw = $('.memberPw');
     var memberPw2 = $('.memberPw2');
     var memberPw2Comment = $('.memberPw2Comment');
-    var memberName = $('.memberName');
-    var memberEmailAddress = $('.memberEmailAddress')+$('.memberEmailAddress2');
+    var memberEmailAddress = $('.memberEmailAddress');
     var memberEmailAddressComment = $('.memberEmailAddressComment');
-    var memberBirthDay = $('.memberBirthDay');
     var idCheck = $('.idCheck');
     var pwCheck2 = $('.pwCheck2');
     var eMailCheck = $('.eMailCheck');
 
-    memberIdCheck.click(function() {
-        console.log(memberId.val());
+    memberIdCheck.click(function(){
+        // console.log(memberId.val());
         $.ajax({
-            type:'post',
-            dataType:'json',
-            url:'../php/memberIdCheck.php',
-            data:{memberId:memberId.val()},
-
-            success: function(json){
-                if(json.res=='good'){
+            type: 'post',
+            dataType: 'json',
+            url: '../php/memberIdCheck.php',
+            data: {memberId: memberId.val()},
+ 
+            success: function (json) {
+                if(json.res == 'good') {
                     console.log(json.res);
-                    memberIdComment.text('사용가능한 아이디입니다.');
-                    ifCheck.val('1');
+                    memberIdComment.text('사용가능한 아이디 입니다.');
+                    idCheck.val('1');
                 }else{
+                    console.log('no');
                     memberIdComment.text('다른 아이디를 입력해 주세요.');
                     memberId.focus();
                 }
             },
-            
-            error: function(){
-                console.log('failed');
-            }
-        });
+ 
+            error:function(request,status,error){
+                alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+            },
+        })
     });
 
     //비밀번호 동일 체크
@@ -45,6 +44,7 @@ $(function(){
             pwCheck2.val('1');
         }else{
             memberPw2Comment.text('비밀번호가 일치하지 않습니다.');
+  
         }
     });
 
@@ -59,44 +59,45 @@ $(function(){
         }
     });
 
-    function checkSubmit(){
-        var idCheck = $('.idCheck');
-        var pwCheck2 = $('.pwCheck2');
-        var eMailCheck = $('.eMailCheck');
-        var memberBirthDay = $('.memberBirthDay');
-        var memberNickName = $('.memberNickName');
+});
 
-        if(idCheck.val() == '1'){
-            res = true;
-        }else{
-            res = false;
-        }
-        if(pwCheck2.val() == '1'){
-            res = true;
-        }else{
-            res = false;
-        }
-        if(eMailCheck.val() == '1'){
-            res = true;
-        }else{
-            res = false;
-        }
+function checkSubmit(){
+    var idCheck = $('.idCheck');
+    var pwCheck2 = $('.pwCheck2');
+    var eMailCheck = $('.eMailCheck');
+    var memberBirthDay = $('.memberBirthDay');
+    var memberNickName = $('.memberNickName');
 
-        if(memberBirthDay.val() != ''){
-            res = true;
-        }else{
-            res = false;
-        }
-        if(memberNickName.val() != ''){
-            res = true;
-        }else{
-            res = false;
-        }
-     
-        if(res == false){
-            alert('회원가입 폼을 정확히 채워 주세요.');
-        }
-        return res;
+    if(idCheck.val() == '1'){
+        res = true;
+    }else{
+        res = false;
     }
-})
-
+    if(pwCheck2.val() == '1'){
+        res = true;
+    }else{
+        res = false;
+    }
+    if(eMailCheck.val() == '1'){
+        res = true;
+    }else{
+        res = false;
+    }
+ 
+    if(memberBirthDay.val() != ''){
+        res = true;
+    }else{
+        res = false;
+    }
+    if(memberNickName.val() != ''){
+        res = true;
+    }else{
+        res = false;
+    }
+ 
+    if(res == false){
+        alert('회원가입 폼을 정확히 채워 주세요.');
+    }
+    return res;
+ 
+}
