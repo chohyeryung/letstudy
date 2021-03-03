@@ -1,17 +1,26 @@
-/* fieldset{
-    position:absolute;
-    top:25%; left:50%;
-    transform: translate(-50%, -50%);
-    width:600px;
-}
-.main_title{
-    text-align:center;
-} */
 .js-toDoForm{
     text-align: center;
     margin-top:150px;
 }
 
-.js-toDoForm h3{
-    display: inline-block;
+.btn-delete{
+    border-radius: 10px;
+    background-color: #b4d2dd;
+    color:black;
+    border:none;
+    padding:15px;
+}
+
+table{
+    margin:0;
+}
+
+tr{
+    display:flex;
+    justify-content: space-around;
+}
+
+.contents{
+    font-size: 30px;
+    font-weight: bold;
 }

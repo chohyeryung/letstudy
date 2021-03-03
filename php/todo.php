@@ -18,10 +18,6 @@
     <title>Let' Study</title>
 </head>
 <body>
-    <!-- <fieldset>
-        <legend class="main_title"><h1>To-Do List</h1></legend>
-            
-    </fieldset> -->
     <form class="js-toDoForm" action="todo_process.php" name="" method="POST">
         <input type="text" name="content" class="input-todo" placeholder="Write to do">
         <input type="submit" name="submit" value="Add">
@@ -34,10 +30,10 @@
         ?>
                 <table>
                     <tr>
-                        <td><?= htmlspecialchars($row['content']) ?></td>
+                        <td class="contents"><?= htmlspecialchars($row['content']) ?></td>
                         <td>
                         <form method="POST" action="todo_process.php">
-                            <button type="submit" name="delete">X</button>
+                            <button type="submit" class="btn-delete" name="delete">DELETE</button>
                             <input type="hidden" name="id" value="<?= $row['idx'] ?>">
                             <input type="hidden" name="delete" value="true">
                         </form>
@@ -46,11 +42,6 @@
                 </table>
         <?php
             }
-            // $result = mysqli_query($conn, $sql);
-            // $num_match = mysqli_num_rows($result);
-
-
-            
         ?>
     </form>
 </body>
