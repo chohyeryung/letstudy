@@ -37,7 +37,7 @@
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) { ?>
                         <input type="hidden" name="del_idx" value="<?= $row['idx'] ?>">
-                        <div><?php echo $row['todo'] ?></div>
+                        <div><?php echo $row['content'] ?></div>
                         <button type="submit" name="delete">X</button>
                     <?php 
                         $i++; 
