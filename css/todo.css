@@ -11,3 +11,7 @@
     text-align: center;
     margin-top:150px;
 }
+
+.js-toDoForm h3{
+    display: inline-block;
+}

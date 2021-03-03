@@ -30,7 +30,7 @@
         <input type="text" class="input-todo" placeholder="Write to do" />
         <ul class="toDoList">
             <?php
-                echo '<h3> '.$u_name .'</h3> 님';
+                echo '<h3>'.$u_name.'</h3> 님';
           
                 // if(!$num_match){
                 //     echo `<h3>$u_name</h3> 님, 지금부터 매일의 성취를 느껴보아요.</h3>`;
