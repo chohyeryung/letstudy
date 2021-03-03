@@ -21,10 +21,15 @@
     mysqli_close($conn);
     // echo $row['id'];
     if((password_verify( $pw, $row['pw'] ))){   //$pass!=$db_pass
+        
+        $_SESSION["useridx"]=$row["idx"];
         $_SESSION["userid"]=$row["id"];
         $_SESSION["username"]=$row["name"];
         $_SESSION["userlevel"]=$row["level"];
         $_SESSION["userpoint"]=$row["point"];
+       
+        
+        
         echo("
             <script>
                 alert('로그인 되었습니다')
