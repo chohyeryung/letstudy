@@ -35,7 +35,12 @@
                 }else{
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) { ?>
-                    <h5> <?php echo $row['todo'] ?> </h5>
+                    <table>
+                        <tr>
+                            <td><?php echo $row['todo'] ?></td>
+                            <td><a href="todo_delete.php?del_id=<?php echo $row['idx'] ?>">x</a> </td>
+                        </tr>
+                    </table>
                     <?php 
                         $i++; 
                     } 
