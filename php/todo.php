@@ -20,7 +20,7 @@
 <body>
     <form class="js-toDoForm" action="todo_process.php" name="" method="POST">
         <input type="text" name="content" class="input-todo" placeholder="Write to do">
-        <input type="submit" name="submit" value="Add">
+        <input type="submit" class="btn-add" name="submit" value="+">
     </form>
         <?php    
             $sql=$pdo->prepare("SELECT * FROM `todo` WHERE user_idx = '$u_idx'");
@@ -32,11 +32,11 @@
                     <tr>
                         <td class="contents"><?= htmlspecialchars($row['content']) ?></td>
                         <td>
-                        <form method="POST" action="todo_process.php">
-                            <button type="submit" class="btn-delete" name="delete">DELETE</button>
-                            <input type="hidden" name="id" value="<?= $row['idx'] ?>">
-                            <input type="hidden" name="delete" value="true">
-                        </form>
+                            <form method="POST" action="todo_process.php">
+                                <button type="submit" class="btn-delete" name="delete">DELETE</button>
+                                <input type="hidden" name="id" value="<?= $row['idx'] ?>">
+                                <input type="hidden" name="delete" value="true">
+                            </form>
                         </td>
                     </tr>
                 </table>

@@ -11,6 +11,9 @@
     margin-bottom:160px;
     font-size:30px;
 }
+.show-form{
+    width:100px;
+}
 .table_list{
     border-top: 1px solid #444444;
     border-collapse: collapse;

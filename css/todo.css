@@ -4,20 +4,21 @@
     margin-bottom: 50px;
 }
 
-.btn-delete{
-    border-radius: 10px;
-    background-color: #b4d2dd;
-    color:black;
-    border:none;
-    padding:15px;
-}
-
 .input-todo{
     width:400px;
-    height:40px;
+    height:45px;
     padding-left:10px;
     border:1px solid rgb(163, 163, 163);
     border-radius: 4px;
+}
+
+.btn-add{
+    font-size: 30px;
+    background-color:#b4d2dd;
+    border:none;
+    border-radius: 10px;
+    width:45px;
+    height:45px;
 }
 
 table{
@@ -36,4 +37,12 @@ tr{
 .contents{
     font-size: 30px;
     font-weight: bold;
+}
+
+.btn-delete{
+    border-radius: 10px;
+    background-color: #b4d2dd;
+    color:black;
+    border:none;
+    padding:15px;
 }

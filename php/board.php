@@ -10,9 +10,10 @@
     <body>
         <?php
             include_once('header.php');
-            $conn=mysqli_connect('localhost', 'root', '111111', 'study');
-            $sql="SELECT * FROM board";
-            $result=mysqli_query($conn, $sql);
+            $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
+        ?>
+
+            <!-- $result=mysqli_query($conn, $sql);
             $list='';
             while($row=mysqli_fetch_array($result)){
                 $escaped_num=htmlspecialchars($row['id']);
@@ -23,13 +24,19 @@
                 $list_title="<a href=\"write.php?id={$row['id']}\">{$escaped_title}</a>";
                 $list=$list.'<tr><td>'.$escaped_num.'</td><td>'.$list_title.'</td><td>'.$escaped_time.'</td><td>'.$escaped_name.'</td></tr>';
             }
-        ?>
+        ?> -->
         <div class="board_container">
             <h2 class="title_board">게시판</h2>
             <div class="button">
                 <input type="text" class="cate" name="login_id" placeholder="전체" autocomplete="off">
                 <input type="text" class="search" name="login_id" placeholder="검색어를 입력하세요" autocomplete="off">
             </div>
+            <?php
+                $sql = $pdo -> prepare("SELECT * FROM board");
+                $sql -> execute();
+    
+                foreach($sql as $row) {
+            ?>
             <table class="table_list">
                 <thead>
                     <tr>
@@ -40,12 +47,21 @@
                         <th>조회수</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?=$list?>
-                </tbody>
+                <tr>
+                    <form method="POST" action="write.php" class="show-form">
+                        <td><?= $row['id'] ?></td>
+                        <td>
+                            <input type="hidden" name="bid" value="<?= $row['id'] ?>">
+                            <input type="submit" class="b-title" value="<?= $row['title'] ?>">
+                        </td>
+                        <td><?= $row['created'] ?></td>
+                        <td><?= $row['name'] ?></td>
+                        <td><?= $row['hit'] ?></td>
+                    </form>
+                </tr>
+                <?php } ?>
             </table>
             <a href="create.php"><button class="create">글쓰기</button></a>
         </div>
     </body>
-    </head>
 </html>

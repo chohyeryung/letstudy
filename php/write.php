@@ -1,16 +1,6 @@
 <?php
-    if(isset($_SESSION["userid"]))  $userid1=$_SESSION["userid"];
-    else $userid1="";
+    $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
     include_once('header.php');
-    $conn=mysqli_connect('localhost', 'root', '111111', 'study');
-    $filetered_id=mysqli_real_escape_string($conn, $_GET['id']);
-    $sql="SELECT * FROM board WHERE id={$filetered_id}";
-    $result=mysqli_query($conn, $sql);
-    $row=mysqli_fetch_array($result);
-    $borad['name']=htmlspecialchars($row['name']);
-    $board['title']=htmlspecialchars($row['title']);
-    $board['description']=htmlspecialchars($row['description']);
-    $board['time']=htmlspecialchars($row['created']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,21 +12,36 @@
         <title>Let' Study</title>
     </head>
     <body>
-        <div class="written_board">
-            <h1 class="board_title"><?=$board['title']?><h4 class="time"><?=$board['time']?></h4></h1>
-            <hr>
-            <h3 class="des"><?=$board['description']?></h3>
-            <a href="board.php"><button class="go_board">목록</button></a>
         <?php
-            if($userid1==$row['name']){
+            if(isset($POST['submit'])) {
+                $id = $POST['bid'];
+                $sql = $pdo -> prepare("SELECT * FROM board WHERE id = '$id'");
+                $sql -> execute();
+
+                foreach($sql as $row){
+            
         ?>
-            <form action="process_delete.php" method="POST">
-                <input type="hidden" name="id" value="<?=$_GET['id']?>">
-                <input type="submit" value="삭제">
-            </form>
-        </div>
-        <?php
-            }
-        ?>
+                    <div class="written_board">
+                        <h1 class="board_title"><?=$row['title']?><h4 class="time"><?=$row['created']?></h4></h1>
+                        <hr>
+                        <h3 class="des"><?=$row['description']?></h3>
+                        <a href="board.php"><button class="go_board">목록</button></a>
+                    <?php
+                        if($userid1==$row['user_idx']){
+                    ?>
+                        <form action="process_delete.php" method="POST">
+                            <input type="hidden" name="id" value="<?=$row['id']?>">
+                            <input type="submit" value="삭제">
+                        </form>
+                    </div>
+                    <?php
+                        }
+                    ?>
+                <?php
+                    }
+                ?>
+            <?php
+                }
+            ?>
     </body>
 </html>

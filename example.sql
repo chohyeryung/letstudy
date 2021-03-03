@@ -9,3 +9,5 @@ CREATE TABLE `todo` (
 
 INSERT INTO `todo` VALUES (1, 'hi', 16);
 INSERT INTO `todo` VALUES (2, 'h2i', 16);
+
+ALTER TABLE `board` ADD `user_idx` int(40) DEFAULT NULL;
