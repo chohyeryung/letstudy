@@ -28,10 +28,6 @@
 ?>             <script>
 					<?php
                     echo('Error description: ' . $conn->error);
-                    // echo $query;
-                    // echo "<pre>";
-                    //     print-_r($_POST);
-                    // echo "</pre>";
 					?>
                 </script>
 <?php   }

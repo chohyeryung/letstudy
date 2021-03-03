@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../css/write.css" />
+        <link rel="stylesheet" type="text/css" href="../css/board_detail.css" />
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <title>Let' Study</title>
     </head>
@@ -15,8 +15,9 @@
         <?php
             if(isset($POST['submit'])) {
                 $id = $POST['bid'];
-                $sql = $pdo -> prepare("SELECT * FROM board WHERE id = '$id'");
-                $sql -> execute();
+                $sql = "SELECT * FROM board WHERE id = '$id'";
+                $stmt = $pdo -> prepare($sql);
+                $stmt -> execute();
 
                 foreach($sql as $row){
             

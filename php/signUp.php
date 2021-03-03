@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <link rel="stylesheet" type="text/css" href="../css/signUp.css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="../js/mySignupForm.js"></script>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
@@ -12,30 +14,40 @@
         include_once('header.php');
     ?>
     <center>
-        <form name="join" class="signUp_form" method="post" action="join.php">
+        <form name="join" class="signUp_form" method="post" action="join.php" onsubmit="return checkSubmit()">
             <table>
                 <tr>
                     <td>
                         <h4 class="text">아이디</h4>
-                        <input type="text" name="id" id="uid" size="30" required autocomplete="off">
+                        <input type="text" name="memberId" class="memberId" />
+                        <div class="memberIdCheck">중복 확인</div>
+                        <div class="memberIdComment comment"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <h4 class="text">비밀번호</h4>
-                        <input type="password" size="30" name="pw" required autocomplete="off">
+                        <input type="password" size="30" name="memberPw" autocomplete="off">
                     </td>
                 </tr>
+                <tr>
                     <td>
-                        <h4 class="text">이름</h4>
-                        <input type="text" maxlength="10" name="name" size="12" required autocomplete="off">
+                        <h4 class="text">비밀번호 확인</h4>
+                        <input type="password" size="30" name="memberPw2" autocomplete="off">
+                        <div class="memberPw2Comment comment"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4 class="text">닉네임</h4>
+                        <input type="text" maxlength="10" name="memberNickName" size="12" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <h4 class="text">생년월일</h4>
-                        <input type="text" class="yymmdd" placeholder="년 (4자)" name="birth1">
-                        <select name="birth2" class="yymmdd mar">
+                        <input type="date" class="yymmdd" name="memberBirthDay">
+                        <!-- <select name="birth2" class="yymmdd mar">
                                 <option value="월" selected>월</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -50,27 +62,21 @@
                                 <option value="11">11</option>
 							    <option value="12">12</option>
                             </select>
-                        <input type="text" class="yymmdd" placeholder="일" name="birth3" size="10"required autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h4 class="text">소속</h4>
-                        <input type="text" name="organization" size="30" required autocomplete="off">
+                        <input type="text" class="yymmdd" placeholder="일" name="birth3" size="10" autocomplete="off"> -->
                     </td>
                 </tr>
                 <tr>
                    
                     <td> 
                         <h4 class="text">전화번호</h4>
-                        <input type="text" placeholder="휴대전화 ('-'없이 11자 입력)" name="tele">
+                        <input type="text" placeholder="휴대전화 ('-'없이 11자 입력)" name="memberTele">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <h4 class="text">이메일</h4>
-                        <input type="text" name="email" class="email mar2" required autocomplete="off">
-                            <select name="emadress" class="email">
+                        <input type="text" name="memberEmailAddress" class="email mar2" autocomplete="off">
+                            <select name="memberEmailAddress2" class="email">
                                 <option value="직접입력" class="placeholder" selected>직접 입력</option>
                                 <option value="naver.com">naver.com</option>
                                 <option value="gmail.com">gmail.com</option>
@@ -78,11 +84,18 @@
                                 <option value="nate.com">nate.com</option>
 							    <option value="hanmail.com">hanmail.com</option>
                             </select>
+                        <div class="memberEmailAddressComment comment"></div>
                     </td>
                 </tr>
             </table>
-            <input class="button_submit" type="submit" onclick="check_id()" value="회원가입">
+            <input class="button_submit" type="submit" value="회원가입">
         </form>
+
+        <div class="formCheck">
+            <input type="hidden" name="idCheck" class="idCheck" />
+            <input type="hidden" name="pw2Check" class="pwCheck2" />
+            <input type="hidden" name="eMailCheck" class="eMailCheck" />
+        </div>
     </center>
 </body>
 </html>

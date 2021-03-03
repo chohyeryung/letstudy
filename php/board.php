@@ -32,10 +32,11 @@
                 <input type="text" class="search" name="login_id" placeholder="검색어를 입력하세요" autocomplete="off">
             </div>
             <?php
-                $sql = $pdo -> prepare("SELECT * FROM board");
-                $sql -> execute();
+                $sql = "SELECT * FROM board";
+                $stmt = $pdo -> prepare($sql);
+                $stmt -> execute();
     
-                foreach($sql as $row) {
+                foreach($stmt as $row) {
             ?>
             <table class="table_list">
                 <thead>
@@ -48,7 +49,7 @@
                     </tr>
                 </thead>
                 <tr>
-                    <form method="POST" action="write.php" class="show-form">
+                    <form method="POST" action="board_detail.php" class="show-form">
                         <td><?= $row['id'] ?></td>
                         <td>
                             <input type="hidden" name="bid" value="<?= $row['id'] ?>">
