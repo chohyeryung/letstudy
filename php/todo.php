@@ -26,8 +26,9 @@
         <legend class="main_title"><h1>To-Do List</h1></legend>
             
     </fieldset> -->
-    <form class="js-toDoForm" action="todo_process.php" method="post">
-        <input type="text" class="input-todo" placeholder="Write to do" />
+    <form class="js-toDoForm" action="todo_process.php" name="" method="POST">
+        <input type="text" name="content" class="input-todo" placeholder="Write to do">
+        <input type="submit" name="submit" value="Add">
         <ul class="toDoList">
             <?php          
                 if(!$num_match){
@@ -35,12 +36,9 @@
                 }else{
                     $i = 1;
                     while ($row = mysqli_fetch_array($result)) { ?>
-                    <table>
-                        <tr>
-                            <td><?php echo $row['todo'] ?></td>
-                            <td><a href="todo_delete.php?del_id=<?php echo $row['idx'] ?>">x</a> </td>
-                        </tr>
-                    </table>
+                        <input type="hidden" name="del_idx" value="<?= $row['idx'] ?>">
+                        <div><?php echo $row['todo'] ?></div>
+                        <button type="submit" name="delete">X</button>
                     <?php 
                         $i++; 
                     } 
