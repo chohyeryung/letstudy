@@ -9,17 +9,17 @@
 </head>
 <body>
     <?php
-        // include_once('header_another.php');
+        include_once('header.php');
     ?>
-    <fieldset>
+    <!-- <fieldset>
         <legend class="main_title"><h1>To-Do List</h1></legend>
-            <form class="js-toDoForm" action="todo_process.php" method="post">
-                <input type="text" class="input-todo" placeholder="Write to do" />
-                <ul class="toDoList">
-                    
-                </ul>
-                <!-- <script src="todo.js"></script> -->
-            </form>
-    </fieldset>
+            
+    </fieldset> -->
+    <form class="js-toDoForm" action="todo_process.php" method="post">
+        <input type="text" class="input-todo" placeholder="Write to do" />
+        <ul class="toDoList">
+            
+        </ul>
+    </form>
 </body>
 </html>

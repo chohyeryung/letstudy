@@ -1,4 +1,4 @@
-fieldset{
+/* fieldset{
     position:absolute;
     top:25%; left:50%;
     transform: translate(-50%, -50%);
@@ -6,4 +6,8 @@ fieldset{
 }
 .main_title{
     text-align:center;
+} */
+.js-toDoForm{
+    text-align: center;
+    margin-top:150px;
 }
