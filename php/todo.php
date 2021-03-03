@@ -5,8 +5,6 @@
     if(isset($_SESSION["userid"]))  $u_name=$_SESSION["userid"];
     else $u_name="";
 
-    echo $u_name;
-
     $conn=mysqli_connect('localhost', 'root', '111111', 'study');
 
     $sql="SELECT * FROM `todo` WHERE user_idx = '$u_idx'";
@@ -32,9 +30,7 @@
         <input type="text" class="input-todo" placeholder="Write to do" />
         <ul class="toDoList">
             <?php
-            echo '<pre>';
-            var_dump($_SESSION);
-            echo '</pre>';
+                echo '<h3> '.$u_name .'</h3> 님';
           
                 // if(!$num_match){
                 //     echo `<h3>$u_name</h3> 님, 지금부터 매일의 성취를 느껴보아요.</h3>`;
