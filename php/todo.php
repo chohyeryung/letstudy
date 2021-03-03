@@ -29,41 +29,17 @@
     <form class="js-toDoForm" action="todo_process.php" method="post">
         <input type="text" class="input-todo" placeholder="Write to do" />
         <ul class="toDoList">
-            <?php
-                echo '<h3>'.$u_name.'</h3> 님';
-          
-                // if(!$num_match){
-                //     echo `<h3>$u_name</h3> 님, 지금부터 매일의 성취를 느껴보아요.</h3>`;
-                // }else{
-                //     // $row=mysqli_fetch_array($result);
-                //     // mysqli_close($conn);
-                //     // // echo $row['id'];
-                //     // if((password_verify( $pw, $row['pw'] ))){   //$pass!=$db_pass
-                        
-                //     //     $_SESSION["useridx"]=$row["idx"];
-                //     //     $_SESSION["userid"]=$row["id"];
-                //     //     $_SESSION["username"]=$row["name"];
-                //     //     $_SESSION["userlevel"]=$row["level"];
-                //     //     $_SESSION["userpoint"]=$row["point"];
-                    
-                        
-                        
-                //     //     echo("
-                //     //         <script>
-                //     //             alert('로그인 되었습니다')
-                //     //             location.href='index.php'
-                //     //         </script>
-                //     //     ");
-                //     // }else{
-                //     //     echo("
-                //     //         <script>
-                //     //             alert('비밀번호가 틀립니다');
-                //     //             location.href='login.php';
-                //     //         </script>
-                //     //     ");
-                //     //     exit;
-                //     // }
-                // }
+            <?php          
+                if(!$num_match){
+                    echo '<h3>'.$u_name.'</h3> 님';
+                }else{
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($result)) { ?>
+                    <h5> <?php echo $row['todo'] ?> </h5>
+                    <?php 
+                        $i++; 
+                    } 
+                }
             ?>
         </ul>
     </form>

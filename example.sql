@@ -6,3 +6,6 @@ CREATE TABLE `todo` (
 );
 
 -- checked는 나중에
+
+INSERT INTO `todo` VALUES (1, 'hi', 16);
+INSERT INTO `todo` VALUES (2, 'h2i', 16);
