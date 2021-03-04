@@ -1,6 +1,8 @@
 <?php
-    $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
+    include '../dbConfig.php';
     include_once('header.php');
+    if(isset($_SESSION["useridx"]))  $useridx=$_SESSION["useridx"];
+    else $useridx="";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,28 +15,32 @@
     </head>
     <body>
         <?php
-            if(isset($POST['submit'])) {
-                $id = $POST['bid'];
-                $sql = "SELECT * FROM board WHERE id = '$id'";
-                $stmt = $pdo -> prepare($sql);
-                $stmt -> execute();
-
-                foreach($sql as $row){
+            if(isset($_POST['detail'])) {
+                $id = $_POST['bid'];
+                $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
+                
+                if($sql -> num_rows > 0){
+                    while($row = $sql -> fetch_assoc()){
+                        $imageURL = '../uploads/'.$row["file_name"];
             
         ?>
-                    <div class="written_board">
-                        <h1 class="board_title"><?=$row['title']?><h4 class="time"><?=$row['created']?></h4></h1>
-                        <hr>
-                        <h3 class="des"><?=$row['description']?></h3>
-                        <a href="board.php"><button class="go_board">목록</button></a>
-                    <?php
-                        if($userid1==$row['user_idx']){
-                    ?>
-                        <form action="process_delete.php" method="POST">
-                            <input type="hidden" name="id" value="<?=$row['id']?>">
-                            <input type="submit" value="삭제">
-                        </form>
-                    </div>
+                        <div class="written_board">
+                            <h1 class="board_title"><?=$row['title']?><h4 class="time"><?=$row['uploaded_on']?></h4></h1>
+                            <hr>
+                            <img src="<?php echo $imageURL; ?>" alt=""/>
+                            <h3 class="des"><?=$row['description']?></h3>
+                            <a href="board.php"><button class="go_board">목록</button></a>
+                        <?php
+                            if($useridx==$row['uid']){
+                        ?>
+                            <form action="process_delete.php" method="POST">
+                                <input type="hidden" name="id" value="<?=$row['uid']?>">
+                                <input type="submit" class="btn-delete" value="삭제">
+                            </form>
+                        </div>
+                        <?php
+                            }
+                        ?>
                     <?php
                         }
                     ?>
@@ -42,6 +48,8 @@
                     }
                 ?>
             <?php
+                }else{
+                    echo 'no';
                 }
             ?>
     </body>

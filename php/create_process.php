@@ -1,54 +1,50 @@
 <?php
-    echo '<pre>';
-    var_dump($_SESSION);
-    echo '</pre>';
+    session_start();
+    if(isset($_SESSION["useridx"]))  $useridx=$_SESSION["useridx"];
+    else $useridx="";
+    if(isset($_SESSION["username"]))  $username=$_SESSION["username"];
+    else $username="";
+    include '../dbConfig.php';
+    $statusMsg = '';
 
-    $target_dir = "../uploads/";
-    $target_file = '';
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    //파일 업로드 path
+    $targetDir = "../uploads/";
+    $fileName = basename($_FILES["file"]["name"]);
+    $targetFilePath = $targetDir . $fileName;
+    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
-    if(isset($_POST["submit"])) {
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-        if($check !== false){
-            echo "File is an image - " . $check["mime"] . ".";
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
+    $title = $_POST['title'];
+    $des = $_POST['description'];
+
+    if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) {
+        //파일 포멧 수락
+        $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
+        if(in_array($fileType, $allowTypes)) {
+            //server에 파일 업로드
+            if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+                //Insert into database
+                $insert = $db -> query("INSERT INTO `board` (name, title, description, file_name, uploaded_on, uid) VALUES ('$username', '$title', '$des', '".$fileName."', NOW(), '$useridx')");
+                if($insert) {
+                    Header("Location:board.php"); 
+                    $statusMsg = "The file ".$fileName. " has been uploaded successfully";
+                }else{
+                    $statusMsg = "File upload failed, please try again.";
+                    echo mysqli_error($db);
+                }
+            }else{
+                $statusMsg = "Sorry, there was an error uploading your file.";
+                echo mysqli_error($db);
+            }
+        }else{
+            $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+            echo mysqli_error($db);
         }
+    }else{
+        $statusMsg = 'Please select a file to upload.';
+        echo mysqli_error($db);
     }
 
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
-
-    if($_FILES["fileToUpload"]["size"] > 5000000) {
-        echo "Sorry, your file is too large";
-        $uploadOk = 0;
-    }
-
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed";
-        echo $imageFileType;
-        $uploadOk = 0;
-    }
-
-    if ($uploadOk == 0) {
-        echo "파일 업로드 실패";
-    } else {
-        if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            $filename = $_FILES["fileToUpload"]["name"];
-            $imgurl = "http://localhost/study/uploads/". $_FILES["fileToUpload"]["name"];
-            $size = $_FILES["fileToUpload"]["size"];
-
-            $conn=mysqli_connect('localhost', 'root', '111111', 'study');
-            $sql = "INSERT INTO images(filename, imgurl, size) VALUES ('$filename', '$imgurl', '$size')";
-
-        }
-    }
+    echo $statusMsg;
     
     
     

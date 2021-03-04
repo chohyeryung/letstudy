@@ -13,18 +13,6 @@
             $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
         ?>
 
-            <!-- $result=mysqli_query($conn, $sql);
-            $list='';
-            while($row=mysqli_fetch_array($result)){
-                $escaped_num=htmlspecialchars($row['id']);
-                $escaped_title=htmlspecialchars($row['title']);
-                $escaped_time=htmlspecialchars($row['created']);
-                $escaped_time=substr($escaped_time, 0 , 11);
-                $escaped_name=htmlspecialchars($row['name']);
-                $list_title="<a href=\"write.php?id={$row['id']}\">{$escaped_title}</a>";
-                $list=$list.'<tr><td>'.$escaped_num.'</td><td>'.$list_title.'</td><td>'.$escaped_time.'</td><td>'.$escaped_name.'</td></tr>';
-            }
-        ?> -->
         <div class="board_container">
             <h2 class="title_board">게시판</h2>
             <div class="button">
@@ -49,11 +37,11 @@
                     </tr>
                 </thead>
                 <tr>
-                    <form method="POST" action="board_detail.php" class="show-form">
+                    <form method="post" action="board_detail.php" class="show-form">
                         <td><?= $row['id'] ?></td>
                         <td>
-                            <input type="hidden" name="bid" value="<?= $row['id'] ?>">
-                            <input type="submit" class="b-title" value="<?= $row['title'] ?>">
+                            <input type="text" name="bid" value="<?= $row['id'] ?>">
+                            <input type="submit" name="detail" class="b-title" value="<?= $row['title'] ?>">
                         </td>
                         <td><?= $row['uploaded_on'] ?></td>
                         <td><?= $row['name'] ?></td>
