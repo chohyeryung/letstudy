@@ -1,4 +1,8 @@
 <?php
+    if(isset($_SESSION["userid"]))  $userid1=$_SESSION["userid"];
+    else $userid1="";
+    if(isset($_SESSION["username"]))  $username=$_SESSION["username"];
+    else $username="";
     include '../dbConfig.php';
     $statusMsg = '';
 
@@ -8,6 +12,9 @@
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
+    $title = $_POST['title'];
+    $des = $_POST['description'];
+
     if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) {
         //파일 포멧 수락
         $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
@@ -15,11 +22,12 @@
             //server에 파일 업로드
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
                 //Insert into database
-                $insert = $db -> query("INSERT INTO images (file_name, uploaded_on) VALUES ('".$fileName."', now())");
+                $insert = $db -> query("INSERT INTO `board` (name, title, description, file_name, uploaded_on) VALUES ('$username', '$title', '$des', '".$fileName."', NOW())");
                 if($insert) {
                     $statusMsg = "The file ".$fileName. " has been uploaded successfully";
                 }else{
                     $statusMsg = "File upload failed, please try again.";
+                    echo mysqli_error($db);
                 }
             }else{
                 $statusMsg = "Sorry, there was an error uploading your file.";
