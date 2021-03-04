@@ -24,7 +24,7 @@
         
         $_SESSION["useridx"]=$row["idx"];
         $_SESSION["userid"]=$row["id"];
-        $_SESSION["username"]=$row["name"];
+        $_SESSION["username"]=$row["nickname"];
         $_SESSION["userlevel"]=$row["level"];
         $_SESSION["userpoint"]=$row["point"];
        

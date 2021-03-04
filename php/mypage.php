@@ -16,23 +16,9 @@
         $result=mysqli_query($conn, $sql);
         $row=mysqli_fetch_array($result);
 
-        $name=$row["name"];
-        $age=$row["age"];
-        $oz=$row["organization"];
-        $tele=explode("-", $row["tele"])[0];
-        $tele1=substr($tele, 0, 3); ;
-        $tele2=substr($tele, 3, 4); ;
-        $tele3=substr($tele, 7, 9); ;
-        $email=explode("@", $row["email"]);
-        $email1=$email[0];
-        $email2=$email[1];
-
-        function Console_log($tele){
-            echo "<script>console.log( 'PHP_Console: " . $tele . "' );</script>";
-        }
-        
-        Console_log($tele1);
-        Console_log($tele);
+        $nickname=$row["nickname"];
+        $birthday=$row["birthday"];
+        $email=$row["email"];
 
         mysqli_close($conn);
     ?>
@@ -43,45 +29,26 @@
             <table>
                 <tr>
                     <td>
-                        <input type="text" size="30" name="id" readonly value="<?=$userid1?>" autocomplete="off">
+                        <input type="text" size="30" name="memberId" readonly value="<?=$userid1?>" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="password" size="30" name="pw" placeholder="비밀번호 재설정" autocomplete="off">
+                        <input type="password" size="30" name="memberPw" placeholder="비밀번호 재설정" autocomplete="off">
                     </td>
                 </tr>
                     <td>
-                        <input type="text" maxlength="10" name="name" size="12" value="<?=$name?>" autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" name="age" size="5" value="<?=$age?>" autocomplete="off">
+                        <input type="text" maxlength="10" name="memberNickName" size="12" value="<?=$nickname?>" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="organization" size="30" value="<?=$oz?>" autocomplete="off">
+                        <input type="text" name="memberBirthday" size="5" value="<?=$birthday?>" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" style="width:120px;" value="<?=$tele1?>" name="tele1">&nbsp;<span>-</span>
-                        <input type="text" style="width:120px;" name="tele2" size="10" value="<?=$tele2?>" autocomplete="off">&nbsp;<span>-</span>
-                        <input type="text" style="width:120px;" name="tele3" size="10" value="<?=$tele3?>" autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" style="width:290px;" name="email" value="<?=$email1?>" autocomplete="off">&nbsp;<span>@</span>
-                            <select name="emadress">
-                                <option value="<?=$email2?>" selected>naver.com</option>
-                                <option value="gmail.com">gmail.com</option>
-                                <option value="daum.net">daum.net</option>
-                                <option value="nate.com">nate.com</option>
-							    <option value="hanmail.com">hanmail.com</option>
-                            </select>
+                        <input type="text" name="memberEmailAddress" class="memberEmailAddress" value="<?= $email ?>"/>
                     </td>
                 </tr>
             </table>

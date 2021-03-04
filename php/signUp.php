@@ -6,7 +6,7 @@
     <title>회원가입</title>
     <link rel="stylesheet" type="text/css" href="../css/signUp.css" />
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script type="text/javascript" src="../js/mySignupForm.js"></script>
+    <!-- <script type="text/javascript" src="../js/mySignupForm.js"></script> -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
@@ -14,13 +14,13 @@
         include_once('header.php');
     ?>
     <center>
-        <form name="join" class="signUp_form" method="post" action="join.php" onsubmit="return checkSubmit()">
+        <form name="join" class="signUp_form" method="POST" action="join.php" >
             <table>
                 <tr>
                     <td>
                         <h4 class="text">아이디</h4>
                         <input type="text" name="memberId" class="memberId" />
-                        <div class="memberIdCheck">중복 확인</div>
+                        <!-- <div class="memberIdCheck">중복 확인</div> -->
                         <div class="memberIdComment comment"></div>
                     </td>
                 </tr>
