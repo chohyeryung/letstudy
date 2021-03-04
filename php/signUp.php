@@ -39,7 +39,7 @@
                 <tr>
                     <td>
                         <h4 class="text">비밀번호 확인</h4>
-                        <i<input type="password" name="memberPw2" class="memberPw2"  />
+                        <input type="password" name="memberPw2" class="memberPw2"  />
                         <div class="memberPw2Comment comment"></div>
                     </td>
                 </tr>
@@ -64,13 +64,6 @@
 							    <option value="12">12</option>
                             </select>
                         <input type="text" class="yymmdd" placeholder="일" name="birth3" size="10" autocomplete="off"> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td> 
-                        <h4 class="text">전화번호</h4>
-                        <input type="text" placeholder="휴대전화 ('-'없이 11자 입력)" name="memberTele">
-                        <div class="memberTeleComment comment"></div>
                     </td>
                 </tr>
                 <tr>

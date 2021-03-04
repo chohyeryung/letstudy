@@ -48,7 +48,7 @@
                     <div class="filebox"> 
                         <label for="ex_filename">파일 선택</label> 
                         <input class="file_name" value="선택된 파일 없음" disabled="disabled"> 
-                        <input type="file" id="ex_filename" class="upload-hidden"> 
+                        <input type="file" name="file" id="ex_filename" class="upload-hidden"> 
                     </div>
                 </td>
             </tr>
