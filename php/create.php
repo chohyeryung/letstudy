@@ -28,7 +28,8 @@
         else $userid1="";
         include_once('header.php');
     ?>
-    <form action="create_process.php?name=<?=$userid1?>" method="post" class="upload_form">
+    <!-- <form action="create_process.php?name=<?=$userid1?>" method="post" class="upload_form"> -->
+    <form action="create_process.php" method="POST" class="upload_form">
         <h2 class="title_create">글쓰기</h2>
         <hr>
         <table>
