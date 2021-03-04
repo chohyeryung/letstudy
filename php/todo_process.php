@@ -10,9 +10,11 @@
         $content = $_POST['content'];
         $sql = $pdo -> prepare("INSERT INTO todo (content, user_idx) VALUES ('$content', '$u_idx')");
         $sql -> execute();
+        Header("Location:todo.php"); 
     } else if(isset($_POST['delete'])) {
         $id = $_POST['id'];
         $sql = $pdo -> prepare("DELETE FROM todo WHERE idx = '$id'");
         $sql -> execute();
+        Header("Location:todo.php"); 
     }
 ?>

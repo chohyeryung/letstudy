@@ -34,7 +34,7 @@
                             if($useridx==$row['uid']){
                         ?>
                             <form action="process_delete.php" method="POST">
-                                <input type="hidden" name="id" value="<?=$row['uid']?>">
+                                <input type="hidden" name="id" value="<?=$row['id']?>">
                                 <input type="submit" class="btn-delete" value="삭제">
                             </form>
                         </div>
