@@ -23,6 +23,7 @@
                 //Insert into database
                 $insert = $db -> query("INSERT INTO `board` (name, title, description, file_name, uploaded_on) VALUES ('$username', '$title', '$des', '".$fileName."', NOW())");
                 if($insert) {
+                    Header("Location:board.php"); 
                     $statusMsg = "The file ".$fileName. " has been uploaded successfully";
                 }else{
                     $statusMsg = "File upload failed, please try again.";
@@ -30,12 +31,15 @@
                 }
             }else{
                 $statusMsg = "Sorry, there was an error uploading your file.";
+                echo mysqli_error($db);
             }
         }else{
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+            echo mysqli_error($db);
         }
     }else{
         $statusMsg = 'Please select a file to upload.';
+        echo mysqli_error($db);
     }
 
     echo $statusMsg;
