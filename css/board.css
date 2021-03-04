@@ -68,3 +68,8 @@ a{
 .create:hover{
     cursor: pointer;
 }
+
+.b-title{
+    background:none;
+    cursor: pointer;
+}

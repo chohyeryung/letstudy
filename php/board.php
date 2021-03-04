@@ -16,8 +16,10 @@
         <div class="board_container">
             <h2 class="title_board">게시판</h2>
             <div class="button">
-                <input type="text" class="cate" name="login_id" placeholder="전체" autocomplete="off">
-                <input type="text" class="search" name="login_id" placeholder="검색어를 입력하세요" autocomplete="off">
+                <form action="search.php" method="post">
+                    <input type="text" class="search" name="search" placeholder="검색어를 입력하세요" autocomplete="off">
+                    <input type="submit">
+                </form>
             </div>
             <?php
                 $sql = "SELECT * FROM board";
@@ -40,7 +42,7 @@
                     <form method="post" action="board_detail.php" class="show-form">
                         <td><?= $row['id'] ?></td>
                         <td>
-                            <input type="text" name="bid" value="<?= $row['id'] ?>">
+                            <input type="hidden" name="bid" value="<?= $row['id'] ?>">
                             <input type="submit" name="detail" class="b-title" value="<?= $row['title'] ?>">
                         </td>
                         <td><?= $row['uploaded_on'] ?></td>
