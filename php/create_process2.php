@@ -15,7 +15,7 @@
             //server에 파일 업로드
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
                 //Insert into database
-                $insert = $db -> query("INSERT INTO images2 (file_name, uploaded_on) VALUES ('".$fileName."', now())");
+                $insert = $db -> query("INSERT INTO images (file_name, uploaded_on) VALUES ('".$fileName."', now())");
                 if($insert) {
                     $statusMsg = "The file ".$fileName. " has been uploaded successfully";
                 }else{
