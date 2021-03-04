@@ -3,7 +3,7 @@
     if(isset($_SESSION["useridx"]))  $u_idx=$_SESSION["useridx"];
     else $u_idx="";
 
-    // $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
+    $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
     
     
     if(isset($_POST['submit'])) {
