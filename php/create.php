@@ -23,17 +23,8 @@
 </head>
 <body>
     <?php
-        
-        if(isset($_SESSION["userid"]))  $userid1=$_SESSION["userid"];
-        else $userid1="";
         include_once('header.php');
     ?>
-    <!-- <form action="create_process2.php" method="post" enctype="multipart/form-data">
-        Select Image File to Upload:
-        <input type="file" name="file">
-        <input type="submit" name="submit" value="Upload">
-    </form> -->
-    <!-- <form action="create_process.php?name=<?=$userid1?>" method="post" class="upload_form"> -->
     <form action="create_process2.php" method="post" enctype="multipart/form-data" class="upload_form">
         <h2 class="title_create">글쓰기</h2>
         <hr>
@@ -67,12 +58,6 @@
                 </td>
             </tr>
         </table>
-
-
-<!-- 
-        <input class="input_title" type="text" name="title" autocomplete="off">
-        <input type="file" name="file" id="ex_filename" class="upload-hidden"> 
-        <input type="text" class="input_des" name="description" autocomplete="off"> -->
       
         <input type="submit" name="submit" class="create_ok" value="등록">
     </form>

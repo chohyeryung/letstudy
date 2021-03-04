@@ -1,6 +1,5 @@
 <?php
-    if(isset($_SESSION["userid"]))  $userid1=$_SESSION["userid"];
-    else $userid1="";
+    session_start();
     if(isset($_SESSION["username"]))  $username=$_SESSION["username"];
     else $username="";
     include '../dbConfig.php';

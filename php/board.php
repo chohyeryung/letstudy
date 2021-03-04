@@ -55,7 +55,7 @@
                             <input type="hidden" name="bid" value="<?= $row['id'] ?>">
                             <input type="submit" class="b-title" value="<?= $row['title'] ?>">
                         </td>
-                        <td><?= $row['created'] ?></td>
+                        <td><?= $row['uploaded_on'] ?></td>
                         <td><?= $row['name'] ?></td>
                         <td><?= $row['hit'] ?></td>
                     </form>
