@@ -6,7 +6,7 @@
     <title>회원가입</title>
     <link rel="stylesheet" type="text/css" href="../css/signUp.css" />
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <!-- <script type="text/javascript" src="../js/mySignupForm.js"></script> -->
+    <script type="text/javascript" src="../js/mySignupForm.js"></script>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
@@ -20,7 +20,7 @@
                     <td>
                         <h4 class="text">아이디</h4>
                         <input type="text" name="memberId" class="memberId" />
-                        <!-- <div class="memberIdCheck">중복 확인</div> -->
+                        <div class="memberIdCheck">중복 확인</div>
                         <div class="memberIdComment comment"></div>
                     </td>
                 </tr>
@@ -74,14 +74,14 @@
                     </td>
                 </tr>
             </table>
-            <input class="button_submit" type="submit" value="회원가입">
+            <input id="button_submit" type="button" value="회원가입" onclick="checkSubmit();">
         </form>
 
         <div class="formCheck">
-            <input type="hidden" name="idCheck" class="idCheck" />
+            <input type="hidden" name="idCheck" class="idCheck" value='0'/>
             <input type="hidden" name="pw2Check" class="pwCheck2" />
             <input type="hidden" name="eMailCheck" class="eMailCheck" />
-        </div>
+        </div> 
     </center>
 </body>
 </html>

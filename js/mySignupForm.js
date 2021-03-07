@@ -68,28 +68,29 @@ function checkSubmit(){
     var memberBirthDay = $('.memberBirthDay');
     var memberNickName = $('.memberNickName');
 
-    if(idCheck.val() == '1'){
+    console.log(idCheck.val());
+
+    if(idCheck.val() !== '1'){
+        alert("아이디 중복 체크를 해주세요");
+        return false;
+    }
+    if(pwCheck2.val() === '1'){
         res = true;
     }else{
         res = false;
     }
-    if(pwCheck2.val() == '1'){
-        res = true;
-    }else{
-        res = false;
-    }
-    if(eMailCheck.val() == '1'){
+    if(eMailCheck.val() === '1'){
         res = true;
     }else{
         res = false;
     }
  
-    if(memberBirthDay.val() != ''){
+    if(memberBirthDay.val() !== ''){
         res = true;
     }else{
         res = false;
     }
-    if(memberNickName.val() != ''){
+    if(memberNickName.val() !== ''){
         res = true;
     }else{
         res = false;
@@ -98,6 +99,7 @@ function checkSubmit(){
     if(res == false){
         alert('회원가입 폼을 정확히 채워 주세요.');
     }
-    return res;
+    var form = document.join;
+    form.submit();
  
 }
