@@ -13,7 +13,7 @@
     position: absolute;
     right:0;
     top:20px;
-    color:f5f5f5;
+    color:#f5f5f5;
     font-weight: normal;
 }
 hr{
@@ -46,6 +46,19 @@ hr{
 }
 
 .btn-delete{
+    width:180px;
+    height:100px;
+    background-color: #b4d2dd;
+    margin-top:165px;
+    margin-bottom:135px;
+    border-radius: 50px;
+    border:none;
+    font-weight: bold;
+    font-size:24px;
+    cursor: pointer;
+}
+
+.btn-update{
     width:180px;
     height:100px;
     background-color: #b4d2dd;

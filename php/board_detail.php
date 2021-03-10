@@ -38,7 +38,8 @@
                         ?>
                             <form action="process_delete.php" method="POST">
                                 <input type="hidden" name="id" value="<?=$row['id']?>">
-                                <input type="submit" class="btn-delete" value="삭제">
+                                <input type="submit" class="btn-delete" name="delete" value="삭제">
+                                <input type="submit" class="btn-update" name="update" value="수정">
                             </form>
                         </div>
                         <?php

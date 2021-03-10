@@ -2,12 +2,14 @@
     // include '../dbConfig.php';
     $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
     $id = $_POST['id'];
-
-    $sql = "DELETE FROM board WHERE id = '$id'";
-
-    $stmt = $pdo -> prepare($sql);
-    $stmt -> execute();
-    Header("Location:board.php"); 
+    if(isset($_POST['delete'])){
+        $sql = "DELETE FROM board WHERE id = '$id'";
+        $stmt = $pdo -> prepare($sql);
+        $stmt -> execute();
+        Header("Location:board.php"); 
+    }else if(isset($_POST['update'])){
+        Header("Location:update.php"); 
+    }
     // if($stmt){
         
     // }else{
