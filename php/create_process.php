@@ -23,7 +23,7 @@
             //server에 파일 업로드
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
                 //Insert into database
-                $insert = $db -> query("INSERT INTO `board` (name, title, description, file_name, uploaded_on, uid) VALUES ('$username', '$title', '$des', '".$fileName."', NOW(), '$useridx')");
+                $insert = $db -> query("INSERT INTO `board` (name, title, description, hit, file_name, uploaded_on, uid) VALUES ('$username', '$title', '$des', 0,'".$fileName."', NOW(), '$useridx')");
                 if($insert) {
                     Header("Location:board.php"); 
                     $statusMsg = "The file ".$fileName. " has been uploaded successfully";

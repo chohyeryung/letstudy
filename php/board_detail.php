@@ -21,7 +21,10 @@
                 
                 if($sql -> num_rows > 0){
                     while($row = $sql -> fetch_assoc()){
+                        $hit=$row["hit"];
+                        $new_hit = $hit+1;
                         $imageURL = '../uploads/'.$row["file_name"];
+                        $sql2 = $db -> query("UPDATE `board` SET hit = '$new_hit' WHERE id = '$id'");
             
         ?>
                         <div class="written_board">
