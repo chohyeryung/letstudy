@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="../css/board.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <?php
+        include '../dbConfig.php';
         include_once('header.php');
-        $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
     ?>
 
     <div class="board_container">
@@ -21,11 +22,10 @@
             </form>
         </div>
         <?php
-            $sql = "SELECT * FROM board WHERE title LIKE %'$search'% OR LIKE %'$search' OR LIKE '$search'%";
-            $stmt = $pdo -> prepare($sql);
-            $stmt -> execute();
-
-            foreach($stmt as $row) {
+            $search = $_POST['search'];
+            $sql = $db -> query("SELECT * FROM board WHERE title LIKE %'$search'%");
+            if($sql -> num_rows > 0){
+                while($row = $sql -> fetch_assoc()){
         ?>
         <table class="table_list">
             <thead>
@@ -49,6 +49,7 @@
                     <td><?= $row['hit'] ?></td>
                 </form>
             </tr>
+            <?php } ?>
             <?php } ?>
         </table>
         <a href="create.php"><button class="create">글쓰기</button></a>
