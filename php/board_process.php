@@ -11,40 +11,47 @@
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
     if(isset($_POST['delete'])){
-        $sql = "DELETE FROM board WHERE id = '$id'";
+        $sql = $db -> query("DELETE FROM board WHERE id = '$id'");
     }else if(isset($_POST['update'])){
         if(!empty($_FILES["file"]["name"])){
-            $title = $_POST['title'];
-            $des = $_POST['description'];
+            $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
 
-            $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
-            if(in_array($fileType, $allowTypes)) {
-                //server에 파일 업로드
-                if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
-                    //Insert into database
-                    $update = $db -> query("UPDATE `board` SET (title, description, file_name, uploaded_on) VALUES ('$title', '$des', '".$fileName."', NOW())");
-                    if($update) {
-                        Header("Location:board.php"); 
-                        $statusMsg = "The file ".$fileName. " has been uploaded successfully";
+            if($sql -> num_rows > 0){
+                while($row = $sql -> fetch_assoc()){
+                    $title = $_POST['title'];
+                    $des = $_POST['description'];
+        
+                    $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
+                    if(in_array($fileType, $allowTypes)) {
+                        //server에 파일 업로드
+                        if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+                            //Insert into database
+                            $update = $db -> query("UPDATE `board` SET title='$title', description='$des', file_name='$fileName', uploaded_on=NOW() WHERE id = '$id'");
+                            if($update) {
+                                Header("Location:board.php"); 
+                                $statusMsg = "The file ".$fileName. " has been uploaded successfully";
+                            }else{
+                                $statusMsg = "File upload failed, please try again.";
+                                echo mysqli_error($db);
+                            }
+                        }else{
+                            $statusMsg = "Sorry, there was an error uploading your file.";
+                            echo mysqli_error($db);
+                        }
                     }else{
-                        $statusMsg = "File upload failed, please try again.";
+                        $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
                         echo mysqli_error($db);
                     }
-                }else{
-                    $statusMsg = "Sorry, there was an error uploading your file.";
-                    echo mysqli_error($db);
                 }
-            }else{
-                $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
-                echo mysqli_error($db);
             }
         }else{
             $statusMsg = 'Please select a file to upload.';
             echo mysqli_error($db);
         }
+        echo $statusMsg;
     }
+           
 
-    echo $statusMsg;
 
     // if($stmt){
         

@@ -32,7 +32,7 @@
             while($row = $sql -> fetch_assoc()){
                 $title = $row['title'];
                 $des = $row['description'];
-                $imageURL = '../uploads/'.$row["file_name"];
+                $imageURL = $row["file_name"];
     ?>
     <form action="board_process.php" method="post" enctype="multipart/form-data" class="upload_form">
         <h2 class="title_create">글수정</h2>
@@ -67,7 +67,7 @@
                 </td>
             </tr>
         </table>
-      
+        <input type="hidden" name="id" value="<?=$row['id']?>">
         <input type="submit" name="update" class="create_ok" value="등록">
     </form>
     <?php
