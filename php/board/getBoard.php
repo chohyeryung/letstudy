@@ -18,22 +18,13 @@
             // echo $row['id'];
             array_push($data, $row);
         }
+        $result->close();
+        
     }else{
-    echo "테이블에 데이터가 없습니다.";
+        echo "테이블에 데이터가 없습니다.";
     }
 
     echo json_encode($data); 
-    // $row=mysqli_fetch_array($result);
-    // $json = array();
-    // if($result) {
-    //     foreach ($row as $data) {
-    //         echo $data['id'];
-    //     }
-    //     // $json = json_encode(array('row' => $row));
-    //     $output = json_encode($json);
-    //     //echo $output;
-    //     $result->close();
-    // }
 
     $conn->close();
 ?>
