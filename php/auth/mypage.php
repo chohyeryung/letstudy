@@ -1,45 +1,45 @@
 <?php
-    $conn=mysqli_connect('localhost', 'root', '111111', 'study');
+    include '../../dbConfig.php';
 
-    $id=$_POST["id"];
+    $idx=$_POST["useridx"];
 
     $sql = "";
-
     // $pw=hex(aes_encrypt($_POST['pw'],'userpw'));
-    $pw=password_hash($_POST['pw'], PASSWORD_DEFAULT);
-	$name=$_POST['name'];
-    $age=$_POST['age'];
-    $organization=$_POST['organization'];
-    $tele=$_POST['tele1'].'-'.$_POST['tele2'].'-'.$_POST['tele3'];
-    $email= $_POST['email'].'@'.$_POST['emadress'];
+    $userid = $_POST['memberId'];
+    // $userpw=hex(aes_encrypt($_POST['pw'],'userpw'));
+    $userpw=password_hash($_POST['memberPw'], PASSWORD_DEFAULT);
+	$nickname=$_POST['memberNickName'];
+    $birthday=$_POST['memberBirthDay'];
+	// $email= $_POST['email'].'@'.$_POST['emadress'];
+    $email = $_POST['memberEmailAddress'];
     
     if(isset($_POST['submit'])) {
-        $sql="UPDATE `member` SET `pw`='$pw', `name`='$name', `age`='$age', `organization`='$organization', `tele`='$tele', `email`='$email'";
-        $sql.="WHERE id='$id'";
+        $sql = $db -> query("UPDATE `member` SET `id`='$userid', `pw`='$userpw', `nickname`='$nickname', `birthday`='$birthday', `email`='$email' WHERE idx='$idx'");
         
-        mysqli_query($conn, $sql);
-
-        mysqli_close($conn);
-
-        echo("
-            <script>
-                alert('정보수정이 완료 되었습니다');
-                location.href='../index.php';
-            </script>
-        ");
+        if($sql) {
+            echo("
+                <script>
+                    alert('정보수정이 완료 되었습니다');
+                    location.href='../index.php';
+                </script>
+            ");
+        }else {
+            echo 'error';
+        }
     }elseif(isset($_POST['delete'])) {
-        $sql="DELETE `member` WHERE `id`='$id'";
 
-        mysqli_query($conn, $sql);
+        $sql = $db -> query("DELETE m,b FROM `member` AS m INNER JOIN board AS b ON m.idx=b.uid WHERE `idx`='$useridx'");
+        session_destroy();
 
-        mysqli_close($conn);
-
-        echo("
-            <script>
-                alert('회원 탈퇴 되었습니다.');
-                location.href='../index.php';
-            </script>
-        ");
+        if($sql) {
+            echo("
+                <script>
+                    alert('회원 탈퇴 되었습니다.');
+                    location.href='../index.php';
+                </script>
+            ");
+        }
+       
     }
   
     

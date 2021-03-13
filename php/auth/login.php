@@ -12,7 +12,7 @@
     echo("
         <script>
             window.alert('등록되지 않은 아이디입니다');
-            location.href='login.php';
+            location.href='login_view.php';
         </script>
     ");
 }else{
@@ -39,7 +39,7 @@
         echo("
             <script>
                 alert('비밀번호가 틀립니다');
-                location.href='login.php';
+                location.href='login_view.php';
             </script>
         ");
         exit;

@@ -8,6 +8,8 @@
 <body>
     <?php
         session_start();
+        if(isset($_SESSION["useridx"]))  $useridx=$_SESSION["useridx"];
+        else $useridx="";
         if(isset($_SESSION["userid"]))  $userid1=$_SESSION["userid"];
         else $userid1="";
         if(isset($_SESSION["username"]))  $username=$_SESSION["username"];

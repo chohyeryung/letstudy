@@ -11,21 +11,18 @@
 <body>
     <?php
         include_once('../header.php');
-        $conn=mysqli_connect('localhost', 'root', '111111', 'study');
-        $sql="SELECT * FROM `member` WHERE id='$userid1'";
-        $result=mysqli_query($conn, $sql);
-        $row=mysqli_fetch_array($result);
+        include '../../dbConfig.php';
+        $sql = $db -> query("SELECT * FROM `member` WHERE idx='$useridx'");
 
-        $nickname=$row["nickname"];
-        $birthday=$row["birthday"];
-        $email=$row["email"];
-
-        mysqli_close($conn);
+        foreach($sql as $row) {
+            $nickname=$row["nickname"];
+            $birthday=$row["birthday"];
+            $email=$row["email"];
     ?>
     <center>
-        
         <form name="join" class="signUp_form" method="post" action="mypage.php">
         <h2 class="title_sign">정보수정</h2>
+            <input type="hidden" name="useridx" value="<?=$useridx?>">
             <table>
                 <tr>
                     <td>
@@ -56,5 +53,8 @@
             <input type="submit" name="delete" value="탈퇴">
         </form>
     </center>
+    <?php
+        }
+    ?>
 </body>
 </html>
