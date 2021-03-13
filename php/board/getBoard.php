@@ -9,7 +9,7 @@
     $sql."WHERE 1 = 1";
 
     if($search != '') {
-        $sql."AND title = " + $search;
+        $sql."AND title LIKE %" + $search + "%";
     }
 
     $result = mysqli_query($conn, $sql);
@@ -24,7 +24,7 @@
         echo "테이블에 데이터가 없습니다.";
     }
 
-    echo json_encode($data); 
+    echo json_encode($data, JSON_UNESCAPED_UNICODE); 
 
     $conn->close();
 ?>
