@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-        include_once('header.php');
+        include_once('../header.php');
     ?>
     <center>
         <form name="join" class="signUp_form" method="POST" action="join.php" >

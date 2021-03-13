@@ -23,8 +23,8 @@
 </head>
 <body>
     <?php
-     include '../../dbConfig.php';
-        include_once('header.php');
+        include '../../dbConfig.php';
+        include_once('../header.php');
         $id=$_POST['id'];
         $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
 

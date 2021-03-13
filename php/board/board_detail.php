@@ -1,6 +1,6 @@
 <?php
-    include '../dbConfig.php';
-    include_once('header.php');
+    include '../../dbConfig.php';
+    include_once('../header.php');
     if(isset($_SESSION["useridx"]))  $useridx=$_SESSION["useridx"];
     else $useridx="";
 ?>

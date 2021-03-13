@@ -27,7 +27,7 @@
 </head>
 <body>
     <?php
-        include_once('header.php');
+        include_once('../header.php');
     ?>
     <center>
     <form name="agree" class="agree_form" method="post" action="" onsubmit="CheckForm(this);">

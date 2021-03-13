@@ -23,7 +23,7 @@
 </head>
 <body>
     <?php
-        include_once('header.php');
+        include_once('../header.php');
     ?>
     <form action="create_process.php" method="post" enctype="multipart/form-data" class="upload_form">
         <h2 class="title_create">글쓰기</h2>

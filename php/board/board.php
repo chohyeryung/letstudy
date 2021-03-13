@@ -106,7 +106,7 @@
     </script>
     <body onload="getBoard()">
         <?php
-            include_once('header.php');
+            include_once('../header.php');
             $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
         ?>
 

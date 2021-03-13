@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php
-        include_once('header.php');
+        include_once('../header.php');
         $conn=mysqli_connect('localhost', 'root', '111111', 'study');
         $sql="SELECT * FROM `member` WHERE id='$userid1'";
         $result=mysqli_query($conn, $sql);

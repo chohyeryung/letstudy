@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-        include_once('header.php');
+        include_once('../header.php');
         if(isset($_SESSION["userid"]))  $userid1=$_SESSION["userid"];
         else $userid1="";
         if(isset($_SESSION["username"]))  $username=$_SESSION["username"];
