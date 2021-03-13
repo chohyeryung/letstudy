@@ -15,7 +15,8 @@
 
             // ajax을 이용해서 데이터를 가져왔음
            $.ajax({
-                type: 'post',
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 url: '../php/board/getBoard.php',
                 data: {search : search.value},

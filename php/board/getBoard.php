@@ -5,11 +5,10 @@
 
     $search = $_POST['search'];
 
-    $sql = "SELECT * FROM board ";
-    $sql."WHERE 1 = 1";
+    $sql = "SELECT * FROM board";
 
     if($search != '') {
-        $sql."AND title LIKE %" + $search + "%";
+        $sql."WHERE title LIKE %".$search."%";
     }
 
     $result = mysqli_query($conn, $sql);
