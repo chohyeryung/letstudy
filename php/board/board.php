@@ -8,6 +8,9 @@
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <title>Let' Study</title>
     </head>
+    <?php
+        include_once($_SERVER["DOCUMENT_ROOT"].'/study/php/header.php');
+    ?>
     <script>
         function getBoard() {
             // 검색어를 받아야 함.
@@ -18,7 +21,7 @@
                 type: 'POST',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
-                url: '../php/board/getBoard.php',
+                url: 'getBoard.php',
                 data: {search : search.value},
                 success: createBoards,
                 error:function(request,status,error){
@@ -106,7 +109,7 @@
     </script>
     <body onload="getBoard()">
         <?php
-            include_once('../header.php');
+           
             $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
         ?>
 

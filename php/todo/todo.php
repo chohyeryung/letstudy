@@ -1,5 +1,5 @@
 <?php
-    include_once('../header.php');
+    include_once($_SERVER["DOCUMENT_ROOT"].'/study/php/header.php');
     if(isset($_SESSION["useridx"]))  $u_idx=$_SESSION["useridx"];
     else $u_idx="";
     if(isset($_SESSION["userid"]))  $u_name=$_SESSION["userid"];
@@ -52,8 +52,7 @@
         <input type="submit" class="btn-add" name="submit" value="+">
     </form>
         <?php    
-            $sql=$pdo->prepare("SELECT * FROM `todo` WHERE user_idx = '$u_idx'");
-            $sql->execute();
+            $sql = $db->query("SELECT * FROM `todo` WHERE user_idx = '$u_idx'");
 
             foreach($sql as $row) {
         ?>
