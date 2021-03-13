@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../css/map.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/map.css" />
     <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
     <title>지도</title>
 </head>

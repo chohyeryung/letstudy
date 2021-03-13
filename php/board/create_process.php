@@ -4,11 +4,11 @@
     else $useridx="";
     if(isset($_SESSION["username"]))  $username=$_SESSION["username"];
     else $username="";
-    include '../dbConfig.php';
+    include '../../dbConfig.php';
     $statusMsg = '';
 
     //파일 업로드 path
-    $targetDir = "../uploads/";
+    $targetDir = "../../uploads/";
     $fileName = basename($_FILES["file"]["name"]);
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);

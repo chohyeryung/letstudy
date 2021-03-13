@@ -36,3 +36,7 @@ function check_input(){
     }
     document.modify.submit();
 }
+
+function reset_form() {
+    header("../php/index.php");
+}

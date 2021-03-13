@@ -76,7 +76,7 @@
     </div>
     <div class="index_s_container">
             <h5>Let' study는 로그인 후 이용 가능한 서비스입니다</h5>
-            <a href="login.php"><button class="start">시작하기</button></a>
+            <a href="./php/auth/login.php"><button class="start">시작하기</button></a>
         </div>
     <?php
         }

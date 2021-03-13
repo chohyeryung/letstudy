@@ -47,9 +47,9 @@
                     <?php
                         }else{
                     ?>
-                    <a href="login.php"><h4 class="m_text">로그인</h4></a>
+                    <a href="auth/login.php"><h4 class="m_text">로그인</h4></a>
                     <h4 class="m_text">|</h4>
-                    <a href="agree.php"><h4 class="m_text">회원가입</h4></a>
+                    <a href="auth/agree.php"><h4 class="m_text">회원가입</h4></a>
                     <?php
                         }
                     ?>
@@ -61,23 +61,20 @@
             <div class="container">
                 <div class="title"><a href="index.php"><img src="../img/logo.png"></a></div>
                 <div class="nav">
-                    <a href="todo.php">
+                    <a href="todo/todo.php">
                         <h4 class="todo n">할일</h4>
                     </a>
-                    <a href="board.php">
+                    <a href="board/board.php">
                         <h4 class="board n">게시판</h4>
-                    </a>
-                    <a href="question.php">
-                        <h4 class="question n">Q & A</h4>
                     </a>
                     <a href="map.php">
                         <h4 class="map n">공부 지도</h4>
                     </a>
                 </div>
                 <div class="member">
-                    <a href="mypage.php"><h4 class="m_text">마이페이지</h4></a>
+                    <a href="auth/mypage.php"><h4 class="m_text">마이페이지</h4></a>
                     <a href="#"><h4 class="m_text">|</h4></a>
-                    <a href="logout.php"><h4 class="m_text">로그아웃</h4></a>
+                    <a href="auth/logout.php"><h4 class="m_text" onclick="logout();">로그아웃</h4></a>
                 </div>
             </div>
         <?php

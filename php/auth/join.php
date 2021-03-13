@@ -1,6 +1,7 @@
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <?php
-	$conn=mysqli_connect('localhost', 'root', '111111', 'study') or die('fail');
+    
+	// $conn=mysqli_connect('localhost', 'root', '111111', 'study') or die('fail');
+    include '../../dbConfig.php';
 
     $userid = $_POST['memberId'];
     // $userpw=hex(aes_encrypt($_POST['pw'],'userpw'));
@@ -10,16 +11,16 @@
 	// $email= $_POST['email'].'@'.$_POST['emadress'];
     $email = $_POST['memberEmailAddress'];
  
-    $query = "INSERT INTO `member` 
+    $sql = $db -> query("INSERT INTO `member` 
     (`id`, `pw`, `nickname`, `birthday`, `email`, `level`, `point`) 
-    VALUES ('$userid', '$userpw', '$nickname', '$birthday', '$email', 9, 0)";
+    VALUES ('$userid', '$userpw', '$nickname', '$birthday', '$email', 9, 0)");
 
 
     //입력받은 데이터를 DB에 저장
-    $result = mysqli_query($conn, $query);
+    //$result = mysqli_query($conn, $query);
 
     //저장이 됬다면 (result = true) 가입 완료
-    if($result) {
+    if($sql) {
 ?>      
         <script>
             alert('가입 되었습니다.');

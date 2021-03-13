@@ -1,11 +1,11 @@
 <?php
-    include '../dbConfig.php';
+    include '../../dbConfig.php';
     // $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
     $id = $_POST['id'];
     $statusMsg = '';
 
     //파일 업로드 path
-    $targetDir = "../uploads/";
+    $targetDir = "../../uploads/";
     $fileName = basename($_FILES["file"]["name"]);
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);

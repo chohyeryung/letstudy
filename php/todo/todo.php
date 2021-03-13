@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/todo.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/todo.css" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <!-- <script>

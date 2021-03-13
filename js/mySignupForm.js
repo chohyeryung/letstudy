@@ -16,7 +16,7 @@ $(function(){
         $.ajax({
             type: 'post',
             dataType: 'json',
-            url: '../php/memberIdCheck.php',
+            url: '../../php/auth/memberIdCheck.php',
             data: {memberId: memberId.val()},
  
             success: function (json) {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/create.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/create.css" />
     <title>Let' Study</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script>
@@ -23,10 +23,19 @@
 </head>
 <body>
     <?php
+     include '../../dbConfig.php';
         include_once('header.php');
+        $id=$_POST['id'];
+        $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
+
+        if($sql -> num_rows > 0){
+            while($row = $sql -> fetch_assoc()){
+                $title = $row['title'];
+                $des = $row['description'];
+                $imageURL = $row["file_name"];
     ?>
-    <form action="create_process.php" method="post" enctype="multipart/form-data" class="upload_form">
-        <h2 class="title_create">글쓰기</h2>
+    <form action="board_process.php" method="post" enctype="multipart/form-data" class="upload_form">
+        <h2 class="title_create">글수정</h2>
         <hr>
         <table>
             <tr>
@@ -34,7 +43,7 @@
                     <h4 class="text t">글제목</h4>
                 </td>
                 <td>
-                    <input class="input_title" type="text" name="title" autocomplete="off">
+                    <input class="input_title" type="text" name="title" placeholder="<?=$title?>" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -44,7 +53,7 @@
                 <td>
                     <div class="filebox"> 
                         <label for="ex_filename">파일 선택</label> 
-                        <input class="file_name" value="선택된 파일 없음" disabled="disabled"> 
+                        <input class="file_name" value="<?=$imageURL?>" disabled="disabled"> 
                         <input type="file" name="file" id="ex_filename" class="upload-hidden"> 
                     </div>
                 </td>
@@ -54,13 +63,23 @@
                     <h4 class="text d">내용</h4>
                 </td>
                 <td>
-                    <input type="text" class="input_des" name="description" autocomplete="off"></textarea>
+                    <input type="text" class="input_des" name="description" placeholder="<?=$des?>" autocomplete="off"></textarea>
                 </td>
             </tr>
         </table>
-      
-        <input type="submit" name="submit" class="create_ok" value="등록">
+        <input type="hidden" name="id" value="<?=$row['id']?>">
+        <input type="submit" name="update" class="create_ok" value="등록">
     </form>
+    <?php
+            }
+        ?>
+    <?php
+        }else{
+    ?>
+    <?php
+            echo 'no';
+        }
+    ?>
 </body>
 </html>
 
