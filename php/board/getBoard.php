@@ -1,14 +1,39 @@
-<?
-    include_once('header.php');
-    $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
+<?php
+    $conn = mysqli_connect('localhost', 'root', '111111', 'study');
 
-    //. 1. 검색에 필요한 검색어 파라미터를 받아와야 함.
+    $data = array();
+
+    $search = $_POST['search'];
+
     $sql = "SELECT * FROM board ";
-    // 검색 기능을 구현하기 위해서 IF로 검색어가 있으면 SQL에 WHERE을 더해줘야 함.
-    $stmt = $pdo -> prepare($sql);
-    $stmt -> execute();
+    $sql."WHERE 1 = 1";
 
-    foreach($stmt as $row) {
+    if($search != '') {
+        $sql."AND title = " + $search;
     }
-    // JSON으로 결과를 만들어서 리턴해줘야 함.
+
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+            // echo $row['id'];
+            array_push($data, $row);
+        }
+    }else{
+    echo "테이블에 데이터가 없습니다.";
+    }
+
+    echo json_encode($data); 
+    // $row=mysqli_fetch_array($result);
+    // $json = array();
+    // if($result) {
+    //     foreach ($row as $data) {
+    //         echo $data['id'];
+    //     }
+    //     // $json = json_encode(array('row' => $row));
+    //     $output = json_encode($json);
+    //     //echo $output;
+    //     $result->close();
+    // }
+
+    $conn->close();
 ?>
