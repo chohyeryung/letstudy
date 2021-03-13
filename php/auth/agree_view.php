@@ -20,7 +20,7 @@
 	            alert("약관에 동의해주세요.");
 	            return;
             }else{
-                f.action = "signUp.php";
+                f.action = "signUp_view.php";
             }
         }
     </script>

@@ -1,62 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>정보수정</title>
-    <link rel="stylesheet" type="text/css" href="../../css/mypage.css" />
-    <script type="text/javascript" src="../../js/member_modify.js"></script>
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-</head>
-<body>
-    <?php
-        include_once('../header.php');
-        $conn=mysqli_connect('localhost', 'root', '111111', 'study');
-        $sql="SELECT * FROM `member` WHERE id='$userid1'";
-        $result=mysqli_query($conn, $sql);
-        $row=mysqli_fetch_array($result);
+<?php
+    $conn=mysqli_connect('localhost', 'root', '111111', 'study');
 
-        $nickname=$row["nickname"];
-        $birthday=$row["birthday"];
-        $email=$row["email"];
+    $id=$_POST["id"];
+
+    $sql = "";
+
+    // $pw=hex(aes_encrypt($_POST['pw'],'userpw'));
+    $pw=password_hash($_POST['pw'], PASSWORD_DEFAULT);
+	$name=$_POST['name'];
+    $age=$_POST['age'];
+    $organization=$_POST['organization'];
+    $tele=$_POST['tele1'].'-'.$_POST['tele2'].'-'.$_POST['tele3'];
+    $email= $_POST['email'].'@'.$_POST['emadress'];
+    
+    if(isset($_POST['submit'])) {
+        $sql="UPDATE `member` SET `pw`='$pw', `name`='$name', `age`='$age', `organization`='$organization', `tele`='$tele', `email`='$email'";
+        $sql.="WHERE id='$id'";
+        
+        mysqli_query($conn, $sql);
 
         mysqli_close($conn);
-    ?>
-    <center>
-        
-        <form name="join" class="signUp_form" method="post" action="mypage_process.php?id=<?=$userid1?>">
-        <h2 class="title_sign">정보수정</h2>
-            <table>
-                <tr>
-                    <td>
-                        <input type="text" size="30" name="memberId" readonly value="<?=$userid1?>" autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="password" size="30" name="memberPw" placeholder="비밀번호 재설정" autocomplete="off">
-                    </td>
-                </tr>
-                    <td>
-                        <input type="text" maxlength="10" name="memberNickName" size="12" value="<?=$nickname?>" autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" name="memberBirthday" size="5" value="<?=$birthday?>" autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" name="memberEmailAddress" class="memberEmailAddress" value="<?= $email ?>"/>
-                    </td>
-                </tr>
-            </table>
-            <input class="button_submit" type="submit" onclick="check_input()" value="저장하기">
-            <input class="button_submit" type="submit" onclick="reset_form()" value="취소하기">
 
-            <input type="submit" name="delete" value="탈퇴">
-        </form>
-    </center>
-</body>
-</html>
+        echo("
+            <script>
+                alert('정보수정이 완료 되었습니다');
+                location.href='../index.php';
+            </script>
+        ");
+    }elseif(isset($_POST['delete'])) {
+        $sql="DELETE `member` WHERE `id`='$id'";
+
+        mysqli_query($conn, $sql);
+
+        mysqli_close($conn);
+
+        echo("
+            <script>
+                alert('회원 탈퇴 되었습니다.');
+                location.href='../index.php';
+            </script>
+        ");
+    }
+  
+    
+    
+?>

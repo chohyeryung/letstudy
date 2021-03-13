@@ -1,43 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
-    <link rel="stylesheet" type="text/css" href="../../css/login.css" />
-    <script type="text/javascript" src="../../js/login.js"></script>
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-</head>
-<body>
-    <?php
-        include_once('../header.php');
-    ?>
-    <div class="log_container">
-        <center>
-            <form name="login" class="form" method="post" action="login_ok.php">
-            <h2 class="title_sign">로그인</h2>
-                <table>
-                    <tr>
-                        <td class="input_id">
-                            <input type="text" name="login_id" placeholder="아이디" autocomplete="off">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="password" class="input_pw" name="login_pw" placeholder="비밀번호" autocomplete="off">
-                        </td>
-                    </tr>
-                </table>
-                <a class="button_submit" onclick="check_input()">로그인</a>
-                <div class="log_nav">
-                    <a href="agree.php"><h4 class="log">회원가입</h4></a>
-                    <a href="#"><h4 class="log">|</h4></a>
-                    <a href="find_id.php"><h4 class="log">아이디 찾기</h4></a>
-                    <a href="#"><h4 class="log">|</h4></a>
-                    <a href="find_pw.php"><h4 class="log">비밀번호 찾기</h4></a>
-                </div>
-            </form>
-        </center>
-    </div>
-</body>
-</html>
+<?php
+ session_start();
+ $conn=mysqli_connect('localhost', 'root', '111111', 'study');
+ //입력 받은 id와 password
+ $id=$_POST['login_id'];
+ $pw=$_POST['login_pw'];
+ //아이디가 있는지 검사
+ $sql="SELECT * FROM `member` WHERE id='$id'";
+ $result=mysqli_query($conn, $sql);
+ $num_match=mysqli_num_rows($result);
+ if(!$num_match){
+    echo("
+        <script>
+            window.alert('등록되지 않은 아이디입니다');
+            location.href='login.php';
+        </script>
+    ");
+}else{
+    $row=mysqli_fetch_array($result);
+    mysqli_close($conn);
+    // echo $row['id'];
+    if((password_verify( $pw, $row['pw'] ))){   //$pass!=$db_pass
+        
+        $_SESSION["useridx"]=$row["idx"];
+        $_SESSION["userid"]=$row["id"];
+        $_SESSION["username"]=$row["nickname"];
+        $_SESSION["userlevel"]=$row["level"];
+        $_SESSION["userpoint"]=$row["point"];
+       
+        
+        
+        echo("
+            <script>
+                alert('로그인 되었습니다')
+                location.href='../index.php'
+            </script>
+        ");
+    }else{
+        echo("
+            <script>
+                alert('비밀번호가 틀립니다');
+                location.href='login.php';
+            </script>
+        ");
+        exit;
+    }
+}
+?>
+

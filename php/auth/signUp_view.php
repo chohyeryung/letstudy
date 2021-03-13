@@ -19,7 +19,7 @@
                 <tr>
                     <td>
                         <h4 class="text">아이디</h4>
-                        <input type="text" name="memberId" class="memberId" />
+                        <input type="text" name="memberId" autocomplete='off' class="memberId" />
                         <div class="memberIdCheck">중복 확인</div>
                         <div class="memberIdComment comment"></div>
                     </td>
@@ -27,19 +27,19 @@
                 <tr>
                     <td>
                         <h4 class="text">닉네임</h4>
-                        <input type="text" name="memberNickName" class="memberNickName"  />
+                        <input type="text" autocomplete='off' name="memberNickName" class="memberNickName"  />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <h4 class="text">비밀번호</h4>
-                        <input type="password" name="memberPw" class="memberPw" />
+                        <input type="password" autocomplete='off' name="memberPw" class="memberPw" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <h4 class="text">비밀번호 확인</h4>
-                        <input type="password" name="memberPw2" class="memberPw2"  />
+                        <input type="password" autocomplete='off' name="memberPw2" class="memberPw2"  />
                         <div class="memberPw2Comment comment"></div>
                     </td>
                 </tr>
@@ -47,7 +47,7 @@
                 <tr>
                     <td>
                         <h4 class="text">생년월일</h4>
-                        <input type="date" name="memberBirthDay" class="memberBirthDay" />
+                        <input type="date" autocomplete='off' name="memberBirthDay" class="memberBirthDay" />
                         <!-- <select name="birth2" class="yymmdd mar">
                                 <option value="월" selected>월</option>
                                 <option value="1">1</option>
@@ -69,7 +69,7 @@
                 <tr>
                     <td>
                         <h4 class="text">이메일</h4>
-                        <input type="text" name="memberEmailAddress" class="memberEmailAddress" />
+                        <input type="text" autocomplete='off' name="memberEmailAddress" class="memberEmailAddress" />
                         <div class="memberEmailAddressComment comment"></div>
                     </td>
                 </tr>
