@@ -52,7 +52,54 @@
         //     </tr>
         // </table>
         function createBoards(json) {
-            console.log(json);
+            // console.log(json);
+            var html = "";
+            var jid;
+            var jtitle;
+            var juploaded;
+            var jname;
+            var jhit;
+            for(idx in json) {
+                jid = json[idx].id;
+                jtitle = json[idx].title;
+                juploaded = json[idx].uploaded_on;
+                jname = json[idx].name;
+                jhit = json[idx].hit;
+
+                document.getElementById("bid").innerHTML = jid;
+                document.getElementById("title").innerHTML = jtitle;
+                document.getElementById("uploaded").innerHTML = juploaded;
+                document.getElementById("name").innerHTML = jname;
+                document.getElementById("hit").innerHTML = jhit;
+                // console.log(json[idx].id);
+                html = `
+                    <table class="table_list">
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>제목</th>
+                                <th>작성일</th>
+                                <th>작성자</th>
+                                <th>조회수</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <form method="post" action="board_detail.php" class="show-form">
+                                <td id="bid"></td>
+                                <td>
+                                    <input type="hidden" name="bid">
+                                    <input type="submit" name="title" class="b-title">
+                                </td>
+                                <td id="uploaded"></td>
+                                <td id="name"></td>
+                                <td id="hit"></td>
+                            </form>
+                        </tr>
+                    </table>
+                `;
+            }
+
+            console.log(html);
         }
 
         

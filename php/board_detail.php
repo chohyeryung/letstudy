@@ -15,7 +15,7 @@
     </head>
     <body>
         <?php
-            if(isset($_POST['detail'])) {
+            if(isset($_POST['title'])) {
                 $id = $_POST['bid'];
                 $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
                 
