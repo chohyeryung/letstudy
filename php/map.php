@@ -2,13 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../css/map.css" />
+    <link rel="stylesheet" type="text/css" href="../css/map.css" />
     <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
     <title>지도</title>
 </head>
 <body>
     <?php
-        include_once('header.php');
+        include_once($_SERVER["DOCUMENT_ROOT"].'/study/php/header.php');
     ?>
 <div id="map" style="width:100%;height:89%;"></div>
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=62f395b0e08fed1f0241c9d88f73d999"></script>

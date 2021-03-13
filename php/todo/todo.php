@@ -5,7 +5,7 @@
     if(isset($_SESSION["userid"]))  $u_name=$_SESSION["userid"];
     else $u_name="";
 
-    $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
+    include '../../dbConfig.php'
 ?>
 
 <!DOCTYPE html>

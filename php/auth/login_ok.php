@@ -32,7 +32,7 @@
         echo("
             <script>
                 alert('로그인 되었습니다')
-                location.href='index.php'
+                location.href='../index.php'
             </script>
         ");
     }else{
