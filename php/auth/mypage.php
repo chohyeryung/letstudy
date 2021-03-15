@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include '../../dbConfig.php';
 
     $idx=$_POST["useridx"];
@@ -27,8 +28,8 @@
             echo 'error';
         }
     }elseif(isset($_POST['delete'])) {
-
-        $sql = $db -> query("DELETE m,b FROM `member` AS m INNER JOIN board AS b ON m.idx=b.uid WHERE `idx`='$useridx'");
+        $sql = $db -> query("DELETE m, b FROM member AS m INNER JOIN board AS b ON m.idx=b.uid WHERE m.idx='$useridx'");
+        
         session_destroy();
 
         if($sql) {
