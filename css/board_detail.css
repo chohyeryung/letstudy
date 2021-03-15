@@ -21,27 +21,40 @@ hr{
     border-color:#000000;
     margin-bottom:60px;
 }
+.board-img{
+    width:400px;
+    height:300px;
+    display: block; 
+    margin: 0px auto; 
+}
 .des{
     background-color:#f5f5f5;
-    height:300px;
-    padding:30px;
+    height:200px;
+    padding:20px;
     border-radius: 30px;
     text-align: center;
+    width:500px;
+    display: block; 
+    margin: 0px auto; 
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.btn-con{
+    display: flex;
+    justify-content: space-around;
 }
 .go_board{
     width:180px;
     height:100px;
     background-color: #b4d2dd;
-    margin-top:165px;
-    margin-bottom:135px;
+    /* margin-top:165px;
+    /* margin-bottom:135px; */ */
     border-radius: 50px;
     border:none;
     font-weight: bold;
     font-size:24px;
-    position: absolute;
-    right:0;
-}
-.go_board:hover{
+    flex:1;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -49,24 +62,28 @@ hr{
     width:180px;
     height:100px;
     background-color: #b4d2dd;
-    margin-top:165px;
-    margin-bottom:135px;
+    /* margin-top:165px;
+    margin-bottom:135px; */
     border-radius: 50px;
     border:none;
     font-weight: bold;
     font-size:24px;
     cursor: pointer;
+    flex:3;
+    text-align: center;
 }
 
 .btn-update{
     width:180px;
     height:100px;
     background-color: #b4d2dd;
-    margin-top:165px;
-    margin-bottom:135px;
+    /* margin-top:165px;
+    margin-bottom:135px; */
     border-radius: 50px;
     border:none;
     font-weight: bold;
     font-size:24px;
     cursor: pointer;
+    flex:1;
 }
+
