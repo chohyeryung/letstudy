@@ -142,7 +142,7 @@
                 }
 
                 // Div.appendChild(tr);
-                // console.log(tr);
+                console.log(tr);
                 // var table = document.getElementsByClassName("table_list");
                 // table.insertBefore(tr, document.getElementById("span"));
                 document.getElementById("setTable").appendChild(tr);
