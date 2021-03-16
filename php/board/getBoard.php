@@ -3,12 +3,12 @@
 
     $data = array();
 
-    $search = $_POST['search'];
+    $search = $_GET['search'];
 
     $sql = "SELECT * FROM board";
 
     if($search) {
-        $sql.=" WHERE title LIKE %$search%";
+        $sql.=" WHERE title LIKE '%$search%'";
     } 
    
     $result = mysqli_query($conn, $sql);
@@ -17,6 +17,7 @@
         while($row = mysqli_fetch_assoc($result)) {
             // echo $row['id'];
             array_push($data, $row);
+            echo '하이';
         }
         $result->close();
         
@@ -24,7 +25,8 @@
         echo "테이블에 데이터가 없습니다.";
     }
 
-    echo json_encode($data, JSON_UNESCAPED_UNICODE); 
+    // echo json_encode($data, JSON_UNESCAPED_UNICODE); 
+    print_r($data);
 
     $conn->close();
 ?>
