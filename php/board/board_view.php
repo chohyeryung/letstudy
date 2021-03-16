@@ -55,16 +55,35 @@
         // </table>
         function createBoards(json) {
             var i;
-            // console.log(json);
+            console.log(json);
+            var html = "";
+            var jid;
+            var jtitle;
+            var juploaded;
+            var jname;
+            var jhit;
             for(i=0; i<json.length; i++){
-                console.log(json[i].title);
+                jid = json[i].id;
+                jtitle = json[i].title;
+                juploaded = json[i].uploaded_on;
+                jname = json[i].name;
+                jhit = json[i].hit;
+                html = `
+                    <tr>
+                        <form method="post" action="board_detail.php" class="show-form">
+                            <td id="bid"></td>
+                            <td>
+                                <input type="hidden" name="bid">
+                                <input type="submit" name="title" class="b-title">
+                            </td>
+                            <td id="uploaded"></td>
+                            <td id="name"></td>
+                            <td id="hit"></td>
+                        </form>
+                    </tr>
+                `;
             }
-            // var html = "";
-            // var jid;
-            // var jtitle;
-            // var juploaded;
-            // var jname;
-            // var jhit;
+            
             // for(idx in json) {
             //     jid = json[idx].id;
             //     jtitle = json[idx].title;
@@ -80,29 +99,29 @@
             //     document.getElementById("hit").innerHTML = jhit;
             //     // console.log(json[idx].id);
             //     html = `
-            //         <table class="table_list">
-            //             <thead>
-            //                 <tr>
-            //                     <th>번호</th>
-            //                     <th>제목</th>
-            //                     <th>작성일</th>
-            //                     <th>작성자</th>
-            //                     <th>조회수</th>
-            //                 </tr>
-            //             </thead>
-            //             <tr>
-            //                 <form method="post" action="board_detail.php" class="show-form">
-            //                     <td id="bid"></td>
-            //                     <td>
-            //                         <input type="hidden" name="bid">
-            //                         <input type="submit" name="title" class="b-title">
-            //                     </td>
-            //                     <td id="uploaded"></td>
-            //                     <td id="name"></td>
-            //                     <td id="hit"></td>
-            //                 </form>
-            //             </tr>
-            //         </table>
+                    // <table class="table_list">
+                    //     <thead>
+                    //         <tr>
+                    //             <th>번호</th>
+                    //             <th>제목</th>
+                    //             <th>작성일</th>
+                    //             <th>작성자</th>
+                    //             <th>조회수</th>
+                    //         </tr>
+                    //     </thead>
+                    //     <tr>
+                    //         <form method="post" action="board_detail.php" class="show-form">
+                    //             <td id="bid"></td>
+                    //             <td>
+                    //                 <input type="hidden" name="bid">
+                    //                 <input type="submit" name="title" class="b-title">
+                    //             </td>
+                    //             <td id="uploaded"></td>
+                    //             <td id="name"></td>
+                    //             <td id="hit"></td>
+                    //         </form>
+                    //     </tr>
+                    // </table>
             //     `;
             // }
 
@@ -144,7 +163,7 @@
                             <th>조회수</th>
                         </tr>
                     </thead>
-                    <tr>
+                    <!-- <tr>
                         <form method="post" action="board_detail_view.php" class="show-form">
                             <td><?= $row['id'] ?></td>
                             <td>
@@ -155,7 +174,7 @@
                             <td><?= $row['name'] ?></td>
                             <td><?= $row['hit'] ?></td>
                         </form>
-                    </tr>
+                    </tr> -->
                 </table>
                 <?php } ?>
             </div>
