@@ -62,6 +62,8 @@
             var juploaded;
             var jname;
             var jhit;
+            var Div = document.getElementById('setTable');
+
             for(i=0; i<json.length; i++){
                 jid = json[i].id;
                 jtitle = json[i].title;
@@ -69,54 +71,80 @@
                 jname = json[i].name;
                 jhit = json[i].hit;
 
-                var tr = document.getElementById('setTable');
+                var tr = document.createElement('tr');
+                var t=1;
+                while(t<2) {
+                    var form = document.createElement('form');
+                    form.setAttribute("charset", "UTF-8");
+                    form.setAttribute("method", "POST");  
+                    form.setAttribute("action", "board_detail_view.php"); 
+
+                    var td1 = document.createElement('td');
+
+                    var id = document.createElement('input');
+                    id.setAttribute("name", "bid");   
+                    id.setAttribute("value", jid);   
+
+                    var td2 = document.createElement('td');
+
+                    var hiddenid = document.createElement("input");
+                    hiddenid.setAttribute("type", "hidden");
+                    hiddenid.setAttribute("name", "bid");
+                    hiddenid.setAttribute("value", jid);
+
+                    var title = document.createElement("input");
+                    title.setAttribute("type", "submit");
+                    title.setAttribute("name", "title");
+                    title.setAttribute("class", "b-title");
+                    title.setAttribute("value", jtitle);
+
+                    var title = document.createElement("input");
+                    title.setAttribute("type", "submit");
+                    title.setAttribute("name", "title");
+                    title.setAttribute("class", "b-title");
+                    title.setAttribute("value", jtitle);
+
+                    var td3 = document.createElement('td');
+                    td3.innerHTML = juploaded;
+
+                    var td4 = document.createElement('td');
+                    td4.innerHTML = jname;
+
+                    var td5 = document.createElement('td');
+                    td5.innerHTML = jhit;
+
+                    tr.appendChild(form);
                 
-                var form = document.createElement('form');
-                form.setAttribute("charset", "UTF-8");
-                form.setAttribute("method", "POST");  
-                form.setAttribute("action", "board_detail_view.php"); 
-                tr.appendChild(form);
+                    form.appendChild(td1);
 
-                var td1 = document.createElement('td');
-                form.appendChild(td1);
 
-                var id = document.createElement('input');
-                id.setAttribute("name", "bid");   
-                id.setAttribute("value", jid);   
-                td1.appendChild(id);
+                    td1.appendChild(id);
 
-                var td2 = document.createElement('td');
-                form.appendChild(td2);
 
-                var hiddenid = document.createElement("input");
-                hiddenid.setAttribute("type", "hidden");
-                hiddenid.setAttribute("name", "bid");
-                hiddenid.setAttribute("value", jid);
-                td2.appendChild(hiddenid);
+                    form.appendChild(td2);
 
-                var title = document.createElement("input");
-                title.setAttribute("type", "submit");
-                title.setAttribute("name", "title");
-                title.setAttribute("class", "b-title");
-                title.setAttribute("value", jtitle);
-                td2.appendChild(title);
 
-                var td3 = document.createElement('td');
-                td3.innerHTML = juploaded;
-                form.appendChild(td3);
+                    td2.appendChild(hiddenid);
 
-                var td4 = document.createElement('td');
-                td4.innerHTML = jname;
-                form.appendChild(td4);
 
-                var td5 = document.createElement('td');
-                td5.innerHTML = jhit;
-                form.appendChild(td5);
+                    td2.appendChild(title);
 
-                console.log(tr);
+
+                    form.appendChild(td3);
+
+
+                    form.appendChild(td4);
+
+
+                    form.appendChild(td5);
+                    t+=1;
+                }
+
+                Div.appendChild(tr);
                 
             }
-        
+            
+            console.log(Div);
             //     <tr>
             //         <form method="post" action="board_detail.php" class="show-form">
             //             <td id="bid"></td>
@@ -164,7 +192,7 @@
                             <th>조회수</th>
                         </tr>
                     </thead>
-                    <tr id="setTable">
+                    <div id="setTable">
                     </tr>
                 </table>
             </div>
