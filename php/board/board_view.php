@@ -173,11 +173,6 @@
         
     </script>
     <body onload="getBoard()">
-        <!-- <?php
-           
-            $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
-        ?> -->
-
         <div class="board_container">
             <h2 class="title_board">게시판</h2>
             <div class="button">
@@ -186,7 +181,6 @@
                     <input type="button" onclick="getBoard();" value="검색"/>
                 </form>
             </div>
-            <!-- <div id="boards"> -->
             <table class="table_list">
                 <thead>
                     <tr>
@@ -199,7 +193,6 @@
                 </thead>
                 <tbody id="setTable"></tbody>
             </table>
-            <!-- </div> -->
             <a href="create_view.php"><button class="create">글쓰기</button></a>
         </div>
     </body>
