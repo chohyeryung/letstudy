@@ -68,60 +68,68 @@
                 juploaded = json[i].uploaded_on;
                 jname = json[i].name;
                 jhit = json[i].hit;
-                html = `
-                    <tr>
-                        <form method="post" action="board_detail.php" class="show-form">
-                            <td id="bid"></td>
-                            <td>
-                                <input type="hidden" name="bid">
-                                <input type="submit" name="title" class="b-title">
-                            </td>
-                            <td id="uploaded"></td>
-                            <td id="name"></td>
-                            <td id="hit"></td>
-                        </form>
-                    </tr>
-                `;
-            }
-            
-            // for(idx in json) {
-            //     jid = json[idx].id;
-            //     jtitle = json[idx].title;
-            //     juploaded = json[idx].uploaded_on;
-            //     jname = json[idx].name;
-            //     jhit = json[idx].hit;
-            //     console.log(jtitle);
 
-            //     document.getElementById("bid").innerHTML = jid;
-            //     document.getElementById("title").innerHTML = jtitle;
-            //     document.getElementById("uploaded").innerHTML = juploaded;
-            //     document.getElementById("name").innerHTML = jname;
-            //     document.getElementById("hit").innerHTML = jhit;
-            //     // console.log(json[idx].id);
-            //     html = `
-                    // <table class="table_list">
-                    //     <thead>
-                    //         <tr>
-                    //             <th>번호</th>
-                    //             <th>제목</th>
-                    //             <th>작성일</th>
-                    //             <th>작성자</th>
-                    //             <th>조회수</th>
-                    //         </tr>
-                    //     </thead>
-                    //     <tr>
-                    //         <form method="post" action="board_detail.php" class="show-form">
-                    //             <td id="bid"></td>
-                    //             <td>
-                    //                 <input type="hidden" name="bid">
-                    //                 <input type="submit" name="title" class="b-title">
-                    //             </td>
-                    //             <td id="uploaded"></td>
-                    //             <td id="name"></td>
-                    //             <td id="hit"></td>
-                    //         </form>
-                    //     </tr>
-                    // </table>
+                var tr = document.getElementById('setTable');
+                
+                var form = document.createElement('form');
+                form.setAttribute("charset", "UTF-8");
+                form.setAttribute("method", "POST");  
+                form.setAttribute("action", "board_detail_view.php"); 
+                tr.appendChild(form);
+
+                var td1 = document.createElement('td');
+                form.appendChild(td1);
+
+                var id = document.createElement('input');
+                id.setAttribute("name", "bid");   
+                id.setAttribute("value", jid);   
+                td1.appendChild(id);
+
+                var td2 = document.createElement('td');
+                form.appendChild(td2);
+
+                var hiddenid = document.createElement("input");
+                hiddenid.setAttribute("type", "hidden");
+                hiddenid.setAttribute("name", "bid");
+                hiddenid.setAttribute("value", jid);
+                td2.appendChild(hiddenid);
+
+                var title = document.createElement("input");
+                title.setAttribute("type", "submit");
+                title.setAttribute("name", "title");
+                title.setAttribute("class", "b-title");
+                title.setAttribute("value", jtitle);
+                td2.appendChild(title);
+
+                var td3 = document.createElement('td');
+                td3.innerHTML = juploaded;
+                form.appendChild(td3);
+
+                var td4 = document.createElement('td');
+                td4.innerHTML = jname;
+                form.appendChild(td4);
+
+                var td5 = document.createElement('td');
+                td5.innerHTML = jhit;
+                form.appendChild(td5);
+
+                console.log(tr);
+                
+            }
+        
+            //     <tr>
+            //         <form method="post" action="board_detail.php" class="show-form">
+            //             <td id="bid"></td>
+            //             <td>
+            //                 <input type="hidden" name="bid">
+            //                 <input type="submit" name="title" class="b-title">
+            //             </td>
+            //             <td id="uploaded"></td>
+            //             <td id="name"></td>
+            //             <td id="hit"></td>
+            //         </form>
+            //     </tr>
+            // </table>
             //     `;
             // }
 
@@ -146,13 +154,6 @@
                 </form>
             </div>
             <div id="boards">
-                <?php
-                    $sql = "SELECT * FROM board";
-                    $stmt = $pdo -> prepare($sql);
-                    $stmt -> execute();
-        
-                    foreach($stmt as $row) {
-                ?>
                 <table class="table_list">
                     <thead>
                         <tr>
@@ -163,20 +164,9 @@
                             <th>조회수</th>
                         </tr>
                     </thead>
-                    <!-- <tr>
-                        <form method="post" action="board_detail_view.php" class="show-form">
-                            <td><?= $row['id'] ?></td>
-                            <td>
-                                <input type="hidden" name="bid" value="<?= $row['id'] ?>">
-                                <input type="submit" name="title" class="b-title" value="<?= $row['title'] ?>">
-                            </td>
-                            <td><?= $row['uploaded_on'] ?></td>
-                            <td><?= $row['name'] ?></td>
-                            <td><?= $row['hit'] ?></td>
-                        </form>
-                    </tr> -->
+                    <tr id="setTable">
+                    </tr>
                 </table>
-                <?php } ?>
             </div>
             <a href="create_view.php"><button class="create">글쓰기</button></a>
         </div>
