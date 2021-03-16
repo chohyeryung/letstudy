@@ -28,7 +28,7 @@
             echo 'error';
         }
     }elseif(isset($_POST['delete'])) {
-        $sql = $db -> query("DELETE m, b FROM member AS m INNER JOIN board AS b ON m.idx=b.uid WHERE m.idx='$useridx'");
+        $sql = $db -> query("DELETE m, b FROM `member` AS m JOIN `board` AS b ON m.idx=b.uid WHERE m.idx='$idx'");
         
         session_destroy();
 

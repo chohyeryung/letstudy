@@ -3,17 +3,15 @@
 
     $data = array();
 
-    $search = $_POST['search'];
+    $search = $_POST['title'];
 
     $sql = "SELECT * FROM board";
 
-    if(!empty($search)) {
-        $sql."WHERE title LIKE '%".$search."%'";
-    }
+    if($search) {
+        $sql." WHERE title LIKE %$search%";
+    } 
    
     $result = mysqli_query($conn, $sql);
-
-    print $result;
 
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
