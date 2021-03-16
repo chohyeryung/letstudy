@@ -3,7 +3,7 @@
 
     $data = array();
 
-    $search = $_POST['title'];
+    $search = $_POST['search'];
 
     $sql = "SELECT * FROM board";
 

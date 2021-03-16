@@ -1,20 +1,27 @@
 <?php
     session_start();
+    include '../../dbConfig.php';
     if(isset($_SESSION["useridx"]))  $u_idx=$_SESSION["useridx"];
     else $u_idx="";
-
-    $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
-    
     
     if(isset($_POST['submit'])) {
         $content = $_POST['content'];
-        $sql = $pdo -> prepare("INSERT INTO todo (content, user_idx) VALUES ('$content', '$u_idx')");
-        $sql -> execute();
-        Header("Location:todo.php"); 
+        // $sql = $pdo -> prepare("INSERT INTO todo (content, user_idx) VALUES ('$content', '$u_idx')");
+        // $sql -> execute();
+        $sql = $db->query("INSERT INTO todo (content, user_idx) VALUES ('$content', '$u_idx')");
+        if($sql) {
+            Header("Location:todo_view.php"); 
+        }else {
+            echo "실패";
+        }
+        
     } else if(isset($_POST['delete'])) {
         $id = $_POST['id'];
-        $sql = $pdo -> prepare("DELETE FROM todo WHERE idx = '$id'");
-        $sql -> execute();
-        Header("Location:todo.php"); 
+        $sql = $db->query("DELETE FROM todo WHERE idx = '$id'");
+        if($sql) {
+            Header("Location:todo_view.php"); 
+        }else {
+            echo "실패";
+        }
     }
 ?>

@@ -19,8 +19,8 @@
     <title>Let' Study</title>
 </head>
 <body>
-    <form class="js-toDoForm" action="todo_process.php" name="" method="POST">
-        <input type="text" name="content" class="input-todo" placeholder="Write to do">
+    <form class="js-toDoForm" action="todo.php" name="" method="POST">
+        <input type="text" name="content" autocomplete="off" class="input-todo" placeholder="Write to do">
         <input type="submit" class="btn-add" name="submit" value="+">
     </form>
         <?php    
