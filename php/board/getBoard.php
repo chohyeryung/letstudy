@@ -10,7 +10,7 @@
     if($search) {
         $sql.=" WHERE title LIKE '%$search%'";
     }
-    
+
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
