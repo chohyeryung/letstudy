@@ -3,14 +3,14 @@
 
     $data = array();
 
-    $search = $_GET['search'];
+    $search = $_POST['search'];
 
     $sql = "SELECT * FROM board";
 
     if($search) {
         $sql.=" WHERE title LIKE '%$search%'";
-    } 
-   
+    }
+    
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -25,7 +25,6 @@
     }
 
     echo json_encode($data, JSON_UNESCAPED_UNICODE); 
-    // print_r($data);
 
     $conn->close();
 ?>
