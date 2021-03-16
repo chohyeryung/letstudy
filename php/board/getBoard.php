@@ -24,7 +24,7 @@
         echo "테이블에 데이터가 없습니다.";
     }
 
-    print_r(json_encode($data, JSON_UNESCAPED_UNICODE)); 
+    echo json_encode($data, JSON_UNESCAPED_UNICODE); 
     // print_r($data);
 
     $conn->close();

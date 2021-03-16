@@ -19,7 +19,6 @@
             // ajax을 이용해서 데이터를 가져왔음
            $.ajax({
                 type: 'POST',
-                contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 url: 'getBoard.php',
                 data: {search : search.value},
