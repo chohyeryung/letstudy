@@ -63,6 +63,7 @@
             var jname;
             var jhit;
             var Div = document.getElementById('setTable');
+            Div.setAttribute("class", "b-table");
 
             for(i=0; i<json.length; i++){
                 jid = json[i].id;
@@ -141,10 +142,11 @@
                 }
 
                 Div.appendChild(tr);
+                // document.body.insertBefore(tr, document.getElementById("setTable"));
                 
             }
+
             
-            console.log(Div);
             //     <tr>
             //         <form method="post" action="board_detail.php" class="show-form">
             //             <td id="bid"></td>
@@ -193,7 +195,7 @@
                         </tr>
                     </thead>
                     <div id="setTable">
-                    </tr>
+                    </div>
                 </table>
             </div>
             <a href="create_view.php"><button class="create">글쓰기</button></a>
