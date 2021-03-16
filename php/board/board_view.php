@@ -55,10 +55,10 @@
         // </table>
         function createBoards(json) {
             var i;
-            console.log(json);
-            // for(i=0; i<json.length; i++){
-            //     console.log(json[i].title);
-            // }
+            // console.log(json);
+            for(i=0; i<json.length; i++){
+                console.log(json[i].title);
+            }
             // var html = "";
             // var jid;
             // var jtitle;
