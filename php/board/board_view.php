@@ -62,8 +62,8 @@
             var juploaded;
             var jname;
             var jhit;
-            var Div = document.getElementById('setTable');
-            Div.setAttribute("class", "b-table");
+            // var Div = document.getElementById('setTable');
+            // Div.setAttribute("class", "b-table");
 
             for(i=0; i<json.length; i++){
                 jid = json[i].id;
@@ -141,8 +141,11 @@
                     t+=1;
                 }
 
-                Div.appendChild(tr);
-                // document.body.insertBefore(tr, document.getElementById("setTable"));
+                // Div.appendChild(tr);
+                // console.log(tr);
+                // var table = document.getElementsByClassName("table_list");
+                // table.insertBefore(tr, document.getElementById("span"));
+                document.getElementById("setTable").appendChild(tr);
                 
             }
 
@@ -170,10 +173,10 @@
         
     </script>
     <body onload="getBoard()">
-        <?php
+        <!-- <?php
            
             $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
-        ?>
+        ?> -->
 
         <div class="board_container">
             <h2 class="title_board">게시판</h2>
@@ -183,21 +186,20 @@
                     <input type="button" onclick="getBoard();" value="검색"/>
                 </form>
             </div>
-            <div id="boards">
-                <table class="table_list">
-                    <thead>
-                        <tr>
-                            <th>번호</th>
-                            <th>제목</th>
-                            <th>작성일</th>
-                            <th>작성자</th>
-                            <th>조회수</th>
-                        </tr>
-                    </thead>
-                    <div id="setTable">
-                    </div>
-                </table>
-            </div>
+            <!-- <div id="boards"> -->
+            <table class="table_list">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성일</th>
+                        <th>작성자</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody id="setTable"></tbody>
+            </table>
+            <!-- </div> -->
             <a href="create_view.php"><button class="create">글쓰기</button></a>
         </div>
     </body>
