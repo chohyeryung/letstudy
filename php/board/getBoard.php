@@ -8,7 +8,7 @@
     $sql = "SELECT * FROM board";
 
     if($search) {
-        $sql." WHERE title LIKE %$search%";
+        $sql.=" WHERE title LIKE %$search%";
     } 
    
     $result = mysqli_query($conn, $sql);
