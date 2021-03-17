@@ -13,42 +13,39 @@
     </head>
     <body>
         <?php
-            if(isset($_POST['title'])) {
-                $id = $_POST['bid'];
-                $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
-                
-                if($sql -> num_rows > 0){
-                    while($row = $sql -> fetch_assoc()){
-                        $hit=$row["hit"];
-                        $new_hit = $hit+1;
-                        $imageURL = '../../uploads/'.$row["file_name"];
-                        $sql2 = $db -> query("UPDATE `board` SET hit = '$new_hit' WHERE id = '$id'");
+            $title = $_GET['title'];
+            $id = $_GET['id'];
+            $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
             
+            if($sql -> num_rows > 0){
+                while($row = $sql -> fetch_assoc()){
+                    $hit=$row["hit"];
+                    $new_hit = $hit+1;
+                    $imageURL = '../../uploads/'.$row["file_name"];
+                    $sql2 = $db -> query("UPDATE `board` SET hit = '$new_hit' WHERE id = '$id'");
+        
         ?>
-                        <div class="written_board">
-                            <h1 class="board_title"><?=$row['title']?><h4 class="time"><?=$row['uploaded_on']?></h4></h1>
-                            <hr>
-                            <img src="<?php echo $imageURL; ?>" class="board-img" alt=""/>
-                            <h3 class="des"><?=$row['description']?></h3>
-                        <?php
-                            if($useridx==$row['uid']){
-                        ?>
-                            <div class="btn-con">
-                                <form action="board.php" method="POST">
-                                    <input type="hidden" name="id" value="<?=$row['id']?>">
-                                    <input type="submit" class="btn-update" value="수정">
-                                </form>
-                                <form action="board.php" method="POST">
-                                    <input type="hidden" name="id" value="<?=$row['id']?>">
-                                    <input type="submit" class="btn-delete" name="delete" value="삭제">
-                                    <!-- <input type="submit" class="btn-update" name="update" value="수정"> -->
-                                </form>
-                                <a href="board_view.php"><button class="go_board">목록</button></a>
-                            </div>
+                    <div class="written_board">
+                        <h1 class="board_title"><?=$row['title']?><h4 class="time"><?=$row['uploaded_on']?></h4></h1>
+                        <hr>
+                        <img src="<?php echo $imageURL; ?>" class="board-img" alt=""/>
+                        <h3 class="des"><?=$row['description']?></h3>
+                    <?php
+                        if($useridx==$row['uid']){
+                    ?>
+                        <div class="btn-con">
+                            <form action="board.php" method="POST">
+                                <input type="hidden" name="id" value="<?=$row['id']?>">
+                                <input type="submit" class="btn-update" value="수정">
+                            </form>
+                            <form action="board.php" method="POST">
+                                <input type="hidden" name="id" value="<?=$row['id']?>">
+                                <input type="submit" class="btn-delete" name="delete" value="삭제">
+                                <!-- <input type="submit" class="btn-update" name="update" value="수정"> -->
+                            </form>
+                            <a href="board_view.php"><button class="go_board">목록</button></a>
                         </div>
-                        <?php
-                            }
-                        ?>
+                    </div>
                     <?php
                         }
                     ?>
@@ -56,8 +53,6 @@
                     }
                 ?>
             <?php
-                }else{
-                    echo 'no';
                 }
             ?>
     </body>

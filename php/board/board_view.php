@@ -17,7 +17,7 @@
             var search = document.getElementById("search");
 
             // ajax을 이용해서 데이터를 가져왔음
-           $.ajax({
+            $.ajax({
                 type: 'POST',
                 dataType: 'json',
                 url: 'getBoard.php',
@@ -28,31 +28,7 @@
                 },
             });
         }
-
-        // 테이블을 찍어내면 됨.
-        // <table class="table_list">
-        //     <thead>
-        //         <tr>
-        //             <th>번호</th>
-        //             <th>제목</th>
-        //             <th>작성일</th>
-        //             <th>작성자</th>
-        //             <th>조회수</th>
-        //         </tr>
-        //     </thead>
-        //     <tr>
-        //         <form method="post" action="board_detail.php" class="show-form">
-        //             <td><?= $row['id'] ?></td>
-        //             <td>
-        //                 <input type="hidden" name="bid" value="<?= $row['id'] ?>">
-        //                 <input type="submit" name="detail" class="b-title" value="<?= $row['title'] ?>">
-        //             </td>
-        //             <td><?= $row['uploaded_on'] ?></td>
-        //             <td><?= $row['name'] ?></td>
-        //             <td><?= $row['hit'] ?></td>
-        //         </form>
-        //     </tr>
-        // </table>
+        
         function createBoards(json) {
             var i;
             console.log(json);
@@ -61,8 +37,6 @@
             var juploaded;
             var jname;
             var jhit;
-            // var Div = document.getElementById('setTable');
-            // Div.setAttribute("class", "b-table");
 
             for(i=0; i<json.length; i++){
                 jid = json[i].id;
@@ -74,11 +48,6 @@
                 var tr = document.createElement('tr');
                 var t=1;
                 while(t<2) {
-                    // var form = document.createElement('form');
-                    // form.setAttribute("charset", "UTF-8");
-                    // form.setAttribute("method", "POST");  
-                    // form.setAttribute("action", "board_detail_view.php");
-
                     var td1 = document.createElement('td'); //id
                     var td2 = document.createElement('td'); //title
                     var td3 = document.createElement('td'); //uploaded
@@ -87,7 +56,6 @@
 
                     var id = document.createElement('h4');
                     id.innerHTML = jid;
-                    // id.setAttribute("value", jid);   
 
                     var title = document.createElement("a");
                     title.href = "board_detail_view.php?title="+jtitle+"&id="+jid;
@@ -114,35 +82,13 @@
                     tr.appendChild(td3);
                     tr.appendChild(td4);
                     tr.appendChild(td5);
-                    // console.log(id, title, uploaded, name, hit);
                     t+=1;
                 }
 
-                // Div.appendChild(tr);
-                // console.log(tr);
-                // var table = document.getElementsByClassName("table_list");
-                // table.insertBefore(tr, document.getElementById("span"));
-                // document.getElementById("setTable").appendChild(tr);
-                document.getElementById("setTable").appendChild(tr);
+                document.getElementById("setTable").append(tr);
                 console.log(tr);
                 
             }
-            
-            //     <tr>
-            //         <form method="post" action="board_detail.php" class="show-form">
-            //             <td id="bid"></td>
-            //             <td>
-            //                 <input type="hidden" name="bid">
-            //                 <input type="submit" name="title" class="b-title">
-            //             </td>
-            //             <td id="uploaded"></td>
-            //             <td id="name"></td>
-            //             <td id="hit"></td>
-            //         </form>
-            //     </tr>
-            // </table>
-            //     `;
-            // }
         }
 
         
