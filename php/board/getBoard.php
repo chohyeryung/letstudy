@@ -12,8 +12,8 @@
     }
 
     $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
+    $total_atricle = mysqli_num_rows($result);
+    if ($total_atricle > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             // echo $row['id'];
             array_push($data, $row);
@@ -27,4 +27,6 @@
     echo json_encode($data, JSON_UNESCAPED_UNICODE); 
 
     $conn->close();
+
+    include("page.php");
 ?>
