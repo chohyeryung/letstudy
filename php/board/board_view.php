@@ -145,7 +145,7 @@
                 console.log(tr);
                 // var table = document.getElementsByClassName("table_list");
                 // table.insertBefore(tr, document.getElementById("span"));
-                document.getElementById("setTable").appendChild(tr);
+                document.getElementById("setTable") = appendChild(tr);
                 
             }
 
@@ -164,9 +164,6 @@
             //     </tr>
             // </table>
             //     `;
-            // }
-
-            // console.log(html);
             // }
         }
 
