@@ -56,7 +56,6 @@
         function createBoards(json) {
             var i;
             console.log(json);
-            var html = "";
             var jid;
             var jtitle;
             var juploaded;
@@ -75,67 +74,47 @@
                 var tr = document.createElement('tr');
                 var t=1;
                 while(t<2) {
-                    var form = document.createElement('form');
-                    form.setAttribute("charset", "UTF-8");
-                    form.setAttribute("method", "POST");  
-                    form.setAttribute("action", "board_detail_view.php"); 
+                    // var form = document.createElement('form');
+                    // form.setAttribute("charset", "UTF-8");
+                    // form.setAttribute("method", "POST");  
+                    // form.setAttribute("action", "board_detail_view.php");
 
-                    var td1 = document.createElement('td');
+                    var td1 = document.createElement('td'); //id
+                    var td2 = document.createElement('td'); //title
+                    var td3 = document.createElement('td'); //uploaded
+                    var td4 = document.createElement('td'); //name
+                    var td5 = document.createElement('td'); //hit
 
-                    var id = document.createElement('input');
-                    id.setAttribute("name", "bid");   
-                    id.setAttribute("value", jid);   
+                    var id = document.createElement('h4');
+                    id.innerHTML = jid;
+                    // id.setAttribute("value", jid);   
 
-                    var td2 = document.createElement('td');
-
-                    var hiddenid = document.createElement("input");
-                    hiddenid.setAttribute("type", "hidden");
-                    hiddenid.setAttribute("name", "bid");
-                    hiddenid.setAttribute("value", jid);
-
-                    var title = document.createElement("input");
-                    title.setAttribute("type", "submit");
-                    title.setAttribute("name", "title");
+                    var title = document.createElement("a");
+                    title.href = "board_detail_view.php?title="+jtitle+"&id="+jid;
                     title.setAttribute("class", "b-title");
-                    title.setAttribute("value", jtitle);
+                    title.innerHTML = jtitle;
 
-                    var title = document.createElement("input");
-                    title.setAttribute("type", "submit");
-                    title.setAttribute("name", "title");
-                    title.setAttribute("class", "b-title");
-                    title.setAttribute("value", jtitle);
+                    var uploaded = document.createElement('h4');
+                    uploaded.innerHTML = juploaded;   
 
-                    var td3 = document.createElement('td');
-                    td3.innerHTML = juploaded;
+                    var name = document.createElement('h4');
+                    name.innerHTML = jname;   
 
-                    var td4 = document.createElement('td');
-                    td4.innerHTML = jname;
-
-                    var td5 = document.createElement('td');
-                    td5.innerHTML = jhit;
-
+                    var hit = document.createElement('h4');
+                    hit.innerHTML = jhit;
+                    
+                    td5.appendChild(hit);
+                    td4.appendChild(name);
+                    td3.appendChild(uploaded);
+                    td2.appendChild(title);
                     td1.appendChild(id);
 
-                    td2.appendChild(hiddenid);
-
-
-                    td2.appendChild(title);
-
-                    form.appendChild(td1);
-
-                    form.appendChild(td2);
-
-                    form.appendChild(td3);
-
-
-                    form.appendChild(td4);
-
-
-                    form.appendChild(td5);
-
-                    tr.appendChild(form);
-                    
-                   
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+                    tr.appendChild(td5);
+                    // console.log(id, title, uploaded, name, hit);
                     t+=1;
                 }
 
@@ -143,10 +122,11 @@
                 // console.log(tr);
                 // var table = document.getElementsByClassName("table_list");
                 // table.insertBefore(tr, document.getElementById("span"));
+                // document.getElementById("setTable").appendChild(tr);
                 document.getElementById("setTable").appendChild(tr);
+                console.log(tr);
                 
             }
-            console.log(document.getElementById("setTable"));
             
             //     <tr>
             //         <form method="post" action="board_detail.php" class="show-form">
