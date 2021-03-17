@@ -28,5 +28,5 @@
 
     $conn->close();
 
-    include("page.php");
+    // include("page.php");
 ?>

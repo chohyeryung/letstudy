@@ -114,22 +114,16 @@
                     var td5 = document.createElement('td');
                     td5.innerHTML = jhit;
 
-                    tr.appendChild(form);
-                
-                    form.appendChild(td1);
-
-
                     td1.appendChild(id);
-
-
-                    form.appendChild(td2);
-
 
                     td2.appendChild(hiddenid);
 
 
                     td2.appendChild(title);
 
+                    form.appendChild(td1);
+
+                    form.appendChild(td2);
 
                     form.appendChild(td3);
 
@@ -138,17 +132,21 @@
 
 
                     form.appendChild(td5);
+
+                    tr.appendChild(form);
+                    
+                   
                     t+=1;
                 }
 
                 // Div.appendChild(tr);
-                console.log(tr);
+                // console.log(tr);
                 // var table = document.getElementsByClassName("table_list");
                 // table.insertBefore(tr, document.getElementById("span"));
-                document.getElementById("setTable") = appendChild(tr);
+                document.getElementById("setTable").appendChild(tr);
                 
             }
-
+            console.log(document.getElementById("setTable"));
             
             //     <tr>
             //         <form method="post" action="board_detail.php" class="show-form">
