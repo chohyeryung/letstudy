@@ -16,15 +16,6 @@
             // 검색어를 받아야 함.
             var search = document.getElementById("search");
 
-            if(!search) {
-                alert("검색할 제목을 작성해주세요.");
-            } else {
-                var table = document.getElementById("setTable");
-                while(table.hasChildNodes()) {
-                    table.removeChild(table.firstChild);
-                }
-            }
-
             // ajax을 이용해서 데이터를 가져왔음
             $.ajax({
                 type: 'POST',
@@ -39,6 +30,9 @@
         }
         
         function createBoards(json) {
+ 
+            var table = document.getElementById("setTable");
+            table.innerHTML = "";
             var i;
             console.log(json);
             var jid;
