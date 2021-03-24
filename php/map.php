@@ -153,6 +153,83 @@ function displayMarker(locPosition, message){
                 }
             }
         });
+
+
+        // $.getJSON('../학원현황.json', function(data){
+        //     $.each(data, function(i, item){ //i는 위치값, item은 객체 
+        //         var json=new Object();
+        //         json.name=item.FACLT_NM;
+        //         json.tele=item.TELNO;
+        //         json.latlng=new kakao.maps.LatLng(item.REFINE_WGS84_LAT, item.REFINE_WGS84_LOGT);
+        //         html.push(json);
+        //     });
+        //     for (var i = 0; i < html.length; i ++) {
+        //         displayCustom(i);
+        //     }
+        //     function displayCustom(i){
+        //         var imageSrc = '../img/red_marker.png', // 마커이미지의 주소입니다    
+        //         imageSize = new kakao.maps.Size(25, 25), // 마커이미지의 크기입니다
+        //         imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+        //         // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+        //         var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+        //         // 마커를 생성합니다
+        //         var marker = new kakao.maps.Marker({
+        //             position: html[i].latlng, // 마커의 위치
+        //             image:markerImage,
+        //             map:map
+        //         });
+        //         marker.setMap(map);  
+        //         var overlay = new kakao.maps.CustomOverlay({
+        //             yAnchor:3,
+        //             position:marker.getPosition()
+        //         });
+        //         var content=document.createElement('div');
+        //         content.className="wrap";
+                
+        //         var info=document.createElement('div');
+        //         info.className="info";
+        //         content.appendChild(info);
+
+        //         var title=document.createElement('div');
+        //         title.className="titlename";
+        //         title.innerHTML=html[i].name;
+        //         info.appendChild(title);
+
+        //         var closeBtn = document.createElement('button');
+        //         closeBtn.className="close";
+        //         closeBtn.innerHTML = '닫기';
+        //         closeBtn.onclick = function () {
+        //             overlay.setMap(null);
+        //         };
+        //         title.appendChild(closeBtn);
+
+        //         var body=document.createElement('div');
+        //         body.className="body";
+        //         info.appendChild(body);
+
+        //         var desc=document.createElement('div');
+        //         desc.className="desc";
+        //         body.appendChild(desc);
+
+        //         var time=document.createElement('div');
+        //         time.className="time";
+        //         time.innerHTML=html[i].tele;
+
+        //         desc.appendChild(time);
+                
+        //         overlay.setContent(content);
+
+        //         kakao.maps.event.addListener(marker, 'click', function() {
+        //             overlay.setMap(map);
+        //         });
+                
+        //         // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+        //         function closeOverlay() {
+        //             overlay.setMap(null);     
+        //         }
+        //     }
+        });
     });
 </script>
 </body>
