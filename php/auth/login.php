@@ -1,15 +1,13 @@
 <?php
  session_start();
  include '../../dbConfig.php';
-//  $conn=mysqli_connect('localhost', 'root', '111111', 'study');
+
  //입력 받은 id와 password
  $id=$_POST['login_id'];
  $pw=$_POST['login_pw'];
+ 
  //아이디가 있는지 검사
  $sql = $db -> query("SELECT * FROM `member` WHERE id='$id'");
-//  $sql="SELECT * FROM `member` WHERE id='$id'";
-//  $result=mysqli_query($conn, $sql);
-//  $num_match=mysqli_num_rows($result);
  if($sql -> num_rows <=0){
     echo("
         <script>
