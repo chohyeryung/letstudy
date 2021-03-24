@@ -1,6 +1,5 @@
 <?php
     include '../../dbConfig.php';
-    // $pdo = new PDO("mysql:host=localhost;dbname=study;charset=utf8","root","111111");
     $id = $_POST['id'];
     $statusMsg = '';
 
