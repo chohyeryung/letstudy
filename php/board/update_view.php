@@ -43,7 +43,7 @@
                     <h4 class="text t">글제목</h4>
                 </td>
                 <td>
-                    <input class="input_title" type="text" name="title" placeholder="<?=$title?>" autocomplete="off">
+                    <input class="input_title" type="text" name="title" value="<?=$title?>" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -53,8 +53,8 @@
                 <td>
                     <div class="filebox"> 
                         <label for="ex_filename">파일 선택</label> 
-                        <input class="file_name" value="<?=$imageURL?>" disabled="disabled"> 
-                        <input type="file" name="file" id="ex_filename" class="upload-hidden"> 
+                        <input class="file_name" placeholder="<?=$imageURL?>"> 
+                        <input type="file" name="file" value="<?=$imageURL?>" id="ex_filename" class="upload-hidden"> 
                     </div>
                 </td>
             </tr>

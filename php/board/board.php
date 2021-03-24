@@ -8,7 +8,7 @@
     $fileName = basename($_FILES["file"]["name"]);
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
-
+   
     if(isset($_POST['delete'])){
         $sql = $db -> query("DELETE FROM board WHERE id = '$id'");
 
@@ -18,6 +18,7 @@
             echo 'error';
         }
     }else if(isset($_POST['update'])){
+        echo $FILES["file"]["name"];
         if(!empty($_FILES["file"]["name"])){
             $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
 
@@ -51,7 +52,9 @@
             }
         }else{
             $statusMsg = 'Please select a file to upload.';
-            echo mysqli_error($db);
+            echo $_FILES["file"]["name"];
         }
         echo $statusMsg;
     }
+
+?>

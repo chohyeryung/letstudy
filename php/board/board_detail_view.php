@@ -34,7 +34,7 @@
                         if($useridx==$row['uid']){
                     ?>
                         <div class="btn-con">
-                            <form action="board.php" method="POST">
+                            <form action="update_view.php" method="POST">
                                 <input type="hidden" name="id" value="<?=$row['id']?>">
                                 <input type="submit" class="btn-update" value="수정">
                             </form>
