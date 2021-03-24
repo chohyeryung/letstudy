@@ -5,13 +5,10 @@
     $idx=$_POST["useridx"];
 
     $sql = "";
-    // $pw=hex(aes_encrypt($_POST['pw'],'userpw'));
     $userid = $_POST['memberId'];
-    // $userpw=hex(aes_encrypt($_POST['pw'],'userpw'));
     $userpw=password_hash($_POST['memberPw'], PASSWORD_DEFAULT);
 	$nickname=$_POST['memberNickName'];
     $birthday=$_POST['memberBirthDay'];
-	// $email= $_POST['email'].'@'.$_POST['emadress'];
     $email = $_POST['memberEmailAddress'];
     
     if(isset($_POST['submit'])) {
@@ -42,7 +39,4 @@
         }
        
     }
-  
-    
-    
 ?>
