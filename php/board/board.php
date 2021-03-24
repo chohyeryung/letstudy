@@ -18,7 +18,6 @@
             echo 'error';
         }
     }else if(isset($_POST['update'])){
-        echo $FILES["file"]["name"];
         if(!empty($_FILES["file"]["name"])){
             $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
 
@@ -51,8 +50,20 @@
                 }
             }
         }else{
-            $statusMsg = 'Please select a file to upload.';
-            echo $_FILES["file"]["name"];
+            $sql = $db -> query("SELECT * FROM board WHERE id = '$id'");
+
+            if($sql -> num_rows > 0){
+                while($row = $sql -> fetch_assoc()){
+                    $title = $_POST['title'];
+                    $des = $_POST['description'];
+    
+                    $update = $db -> query("UPDATE `board` SET title='$title', description='$des', uploaded_on=NOW() WHERE id = '$id'");
+                    if($update) {
+                        Header("Location:board_view.php"); 
+                        $statusMsg = "The file ".$fileName. " has been uploaded successfully";
+                    }
+                }
+            }
         }
         echo $statusMsg;
     }
