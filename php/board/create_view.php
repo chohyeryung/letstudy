@@ -34,7 +34,7 @@
                     <h4 class="text t">글제목</h4>
                 </td>
                 <td>
-                    <input class="input_title" type="text" name="title" autocomplete="off">
+                    <input class="input_title" required type="text" name="title" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -45,7 +45,7 @@
                     <div class="filebox"> 
                         <label for="ex_filename">파일 선택</label> 
                         <input class="file_name" value="선택된 파일 없음" disabled="disabled"> 
-                        <input type="file" name="file" id="ex_filename" class="upload-hidden"> 
+                        <input type="file" name="file" required id="ex_filename" class="upload-hidden"> 
                     </div>
                 </td>
             </tr>
@@ -54,7 +54,7 @@
                     <h4 class="text d">내용</h4>
                 </td>
                 <td>
-                    <input type="text" class="input_des" name="description" autocomplete="off"></textarea>
+                    <input type="text" class="input_des" required name="description" autocomplete="off"></textarea>
                 </td>
             </tr>
         </table>
