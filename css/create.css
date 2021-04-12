@@ -1,5 +1,5 @@
 .upload_form{
-    padding-top:150px;
+    padding-top:100px;
     position: relative;
     margin:auto;
     width:980px;
@@ -22,7 +22,7 @@ input{
 }
 .input_des{
     width:730px;
-    height:500px;
+    height:400px;
     margin-top:30px;
     font-size:20px;
     font-weight: bold;
