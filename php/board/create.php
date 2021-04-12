@@ -17,13 +17,12 @@
     $des = $_POST['description'];
 
     if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) {
-        //파일 포멧 수락
         $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
         if(in_array($fileType, $allowTypes)) {
-            //server에 파일 업로드
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
                 //Insert into database
-                $insert = $db -> query("INSERT INTO `board` (name, title, description, hit, file_name, uploaded_on, uid) VALUES ('$username', '$title', '$des', 0,'".$fileName."', NOW(), '$useridx')");
+                $insert = $db -> query("INSERT INTO `board` (name, title, description, hit, file_name, uploaded_on, uid) VALUES 
+                ('$username', '$title', '$des', 0,'".$fileName."', NOW(), '$useridx')");
                 if($insert) {
                     Header("Location:board_view.php"); 
                     $statusMsg = "The file ".$fileName. " has been uploaded successfully";
