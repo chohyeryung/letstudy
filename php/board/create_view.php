@@ -54,7 +54,7 @@
                     <h4 class="text d">내용</h4>
                 </td>
                 <td>
-                    <input type="text" class="input_des" required name="description" autocomplete="off"></textarea>
+                    <textarea type="text" class="input_des" required name="description" autocomplete="off"></textarea>
                 </td>
             </tr>
         </table>
